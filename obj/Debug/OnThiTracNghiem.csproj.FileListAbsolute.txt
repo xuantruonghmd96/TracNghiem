@@ -1,0 +1,9 @@
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\bin\Debug\OnThiTracNghiem.exe.config
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\bin\Debug\OnThiTracNghiem.exe
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\bin\Debug\OnThiTracNghiem.pdb
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\obj\Debug\OnThiTracNghiem.csprojResolveAssemblyReference.cache
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\obj\Debug\OnThiTracNghiem.Properties.Resources.resources
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\obj\Debug\OnThiTracNghiem.csproj.GenerateResource.Cache
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\obj\Debug\OnThiTracNghiem.exe
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\obj\Debug\OnThiTracNghiem.pdb
+D:\Lap Trinh C\OnThiTracNghiem\OnThiTracNghiem\obj\Debug\OnThiTracNghiem.FormMain.resources
