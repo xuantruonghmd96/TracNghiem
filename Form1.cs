@@ -12,9 +12,18 @@ namespace OnThiTracNghiem
 {
     public partial class FormMain : Form
     {
+        DuLieuVung duLieuVung;
+        ThietDat thietDat;
         public FormMain()
         {
             InitializeComponent();
+
+            duLieuVung = new DuLieuVung(numSoLanVung, lblSoCauChuaVung);
+            duLieuVung.LoadFile();
+
+            thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn);
+            thietDat.LoadFile();
+            
         }
 
         private void ChonNhieuDapAn()
@@ -54,5 +63,15 @@ namespace OnThiTracNghiem
                 chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
             ChonNhieuDapAn();
         }
+       
+        private void tctrlMainMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (duLieuVung.CoThayDoiSoLanVung((int)numSoLanVung.Value))
+                duLieuVung.ThayDoiSoLanVung((int)numSoLanVung.Value);
+            if (thietDat.CoThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked))
+                thietDat.ThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked);
+        }
+
+        
     }
 }
