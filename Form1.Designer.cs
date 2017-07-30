@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace OnThiTracNghiem
 {
@@ -64,6 +65,8 @@ namespace OnThiTracNghiem
             this.label3 = new System.Windows.Forms.Label();
             this.chbxSoDapAnDuocChon = new System.Windows.Forms.CheckBox();
             this.ttpSoLanVung = new System.Windows.Forms.ToolTip(this.components);
+            this.btnModeDapAn1Classic = new System.Windows.Forms.Button();
+            this.ttpMode1DapAnClassic = new System.Windows.Forms.ToolTip(this.components);
             this.tctrlMainMenu.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,11 +79,13 @@ namespace OnThiTracNghiem
             // 
             // tctrlMainMenu
             // 
+            this.tctrlMainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tctrlMainMenu.Controls.Add(this.tabPage1);
             this.tctrlMainMenu.Controls.Add(this.tabPage2);
             this.tctrlMainMenu.Controls.Add(this.tabPage3);
             this.tctrlMainMenu.Controls.Add(this.tabPage4);
-            this.tctrlMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tctrlMainMenu.Location = new System.Drawing.Point(0, 0);
             this.tctrlMainMenu.Margin = new System.Windows.Forms.Padding(4);
             this.tctrlMainMenu.Name = "tctrlMainMenu";
@@ -113,6 +118,7 @@ namespace OnThiTracNghiem
             // 
             // lblSoCauChuaVung
             // 
+            this.lblSoCauChuaVung.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSoCauChuaVung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoCauChuaVung.ForeColor = System.Drawing.Color.DarkOrange;
             this.lblSoCauChuaVung.Location = new System.Drawing.Point(103, 133);
@@ -125,6 +131,7 @@ namespace OnThiTracNghiem
             // 
             // lblMode4
             // 
+            this.lblMode4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMode4.AutoSize = true;
             this.lblMode4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode4.Location = new System.Drawing.Point(103, 169);
@@ -136,6 +143,7 @@ namespace OnThiTracNghiem
             // 
             // lblMode3
             // 
+            this.lblMode3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMode3.AutoSize = true;
             this.lblMode3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode3.Location = new System.Drawing.Point(134, 133);
@@ -147,6 +155,7 @@ namespace OnThiTracNghiem
             // 
             // lblMode2
             // 
+            this.lblMode2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMode2.AutoSize = true;
             this.lblMode2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode2.Location = new System.Drawing.Point(103, 97);
@@ -158,6 +167,7 @@ namespace OnThiTracNghiem
             // 
             // lblMode1
             // 
+            this.lblMode1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMode1.AutoSize = true;
             this.lblMode1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode1.Location = new System.Drawing.Point(103, 60);
@@ -169,6 +179,7 @@ namespace OnThiTracNghiem
             // 
             // btnMode4
             // 
+            this.btnMode4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMode4.BackColor = System.Drawing.Color.Orange;
             this.btnMode4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMode4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -182,6 +193,7 @@ namespace OnThiTracNghiem
             // 
             // btnMode3
             // 
+            this.btnMode3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMode3.BackColor = System.Drawing.Color.Orange;
             this.btnMode3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMode3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -195,6 +207,7 @@ namespace OnThiTracNghiem
             // 
             // btnMode2
             // 
+            this.btnMode2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMode2.BackColor = System.Drawing.Color.Orange;
             this.btnMode2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMode2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -208,6 +221,7 @@ namespace OnThiTracNghiem
             // 
             // btnMode1
             // 
+            this.btnMode1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMode1.BackColor = System.Drawing.Color.Orange;
             this.btnMode1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMode1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -221,6 +235,7 @@ namespace OnThiTracNghiem
             // 
             // lblModeSelect
             // 
+            this.lblModeSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblModeSelect.AutoSize = true;
             this.lblModeSelect.BackColor = System.Drawing.Color.Transparent;
             this.lblModeSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,6 +263,7 @@ namespace OnThiTracNghiem
             // 
             // btnThi
             // 
+            this.btnThi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThi.BackColor = System.Drawing.Color.Orange;
             this.btnThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -261,14 +277,21 @@ namespace OnThiTracNghiem
             // 
             // numSoCauThi
             // 
+            this.numSoCauThi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numSoCauThi.Location = new System.Drawing.Point(154, 78);
             this.numSoCauThi.Margin = new System.Windows.Forms.Padding(4);
+            this.numSoCauThi.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numSoCauThi.Name = "numSoCauThi";
             this.numSoCauThi.Size = new System.Drawing.Size(60, 22);
             this.numSoCauThi.TabIndex = 13;
             // 
             // lblThi
             // 
+            this.lblThi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblThi.AutoSize = true;
             this.lblThi.BackColor = System.Drawing.Color.Transparent;
             this.lblThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -283,6 +306,7 @@ namespace OnThiTracNghiem
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnModeDapAn1Classic);
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.btnModeDapAn2);
@@ -299,6 +323,7 @@ namespace OnThiTracNghiem
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(119, 116);
@@ -310,6 +335,7 @@ namespace OnThiTracNghiem
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(119, 79);
@@ -321,6 +347,7 @@ namespace OnThiTracNghiem
             // 
             // btnModeDapAn2
             // 
+            this.btnModeDapAn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnModeDapAn2.BackColor = System.Drawing.Color.Orange;
             this.btnModeDapAn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModeDapAn2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -334,6 +361,7 @@ namespace OnThiTracNghiem
             // 
             // btnModeDapAn1
             // 
+            this.btnModeDapAn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnModeDapAn1.BackColor = System.Drawing.Color.Orange;
             this.btnModeDapAn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModeDapAn1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -344,9 +372,11 @@ namespace OnThiTracNghiem
             this.btnModeDapAn1.TabIndex = 9;
             this.btnModeDapAn1.Text = "1";
             this.btnModeDapAn1.UseVisualStyleBackColor = false;
+            this.btnModeDapAn1.Click += new System.EventHandler(this.btnModeDapAn1_Click);
             // 
             // lblSuaDapAn
             // 
+            this.lblSuaDapAn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSuaDapAn.AutoSize = true;
             this.lblSuaDapAn.BackColor = System.Drawing.Color.Transparent;
             this.lblSuaDapAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -378,8 +408,14 @@ namespace OnThiTracNghiem
             // 
             // numSoLanVung
             // 
+            this.numSoLanVung.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numSoLanVung.Location = new System.Drawing.Point(133, 32);
             this.numSoLanVung.Margin = new System.Windows.Forms.Padding(4);
+            this.numSoLanVung.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numSoLanVung.Name = "numSoLanVung";
             this.numSoLanVung.Size = new System.Drawing.Size(60, 22);
             this.numSoLanVung.TabIndex = 1;
@@ -388,6 +424,7 @@ namespace OnThiTracNghiem
             // 
             // lblSoLanVung
             // 
+            this.lblSoLanVung.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSoLanVung.AutoSize = true;
             this.lblSoLanVung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoLanVung.Location = new System.Drawing.Point(23, 34);
@@ -399,6 +436,7 @@ namespace OnThiTracNghiem
             // 
             // btnMotDapAn
             // 
+            this.btnMotDapAn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMotDapAn.BackColor = System.Drawing.Color.Orange;
             this.btnMotDapAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMotDapAn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -413,6 +451,7 @@ namespace OnThiTracNghiem
             // 
             // btnNhieuDapAn
             // 
+            this.btnNhieuDapAn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNhieuDapAn.BackColor = System.Drawing.Color.Transparent;
             this.btnNhieuDapAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhieuDapAn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -427,6 +466,7 @@ namespace OnThiTracNghiem
             // 
             // numSoPhuongAn
             // 
+            this.numSoPhuongAn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numSoPhuongAn.Location = new System.Drawing.Point(198, 88);
             this.numSoPhuongAn.Maximum = new decimal(new int[] {
             8,
@@ -439,6 +479,7 @@ namespace OnThiTracNghiem
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(23, 143);
             this.label4.Name = "label4";
@@ -448,6 +489,7 @@ namespace OnThiTracNghiem
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(23, 90);
             this.label3.Name = "label3";
@@ -457,6 +499,7 @@ namespace OnThiTracNghiem
             // 
             // chbxSoDapAnDuocChon
             // 
+            this.chbxSoDapAnDuocChon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chbxSoDapAnDuocChon.Appearance = System.Windows.Forms.Appearance.Button;
             this.chbxSoDapAnDuocChon.BackColor = System.Drawing.Color.Transparent;
             this.chbxSoDapAnDuocChon.BackgroundImage = global::OnThiTracNghiem.Properties.Resources.switch_button1;
@@ -478,6 +521,30 @@ namespace OnThiTracNghiem
             this.ttpSoLanVung.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttpSoLanVung.ToolTipTitle = "Mô tả";
             // 
+            // btnModeDapAn1Classic
+            // 
+            this.btnModeDapAn1Classic.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModeDapAn1Classic.BackColor = System.Drawing.Color.Orange;
+            this.btnModeDapAn1Classic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModeDapAn1Classic.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnModeDapAn1Classic.Location = new System.Drawing.Point(231, 73);
+            this.btnModeDapAn1Classic.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModeDapAn1Classic.Name = "btnModeDapAn1Classic";
+            this.btnModeDapAn1Classic.Size = new System.Drawing.Size(71, 28);
+            this.btnModeDapAn1Classic.TabIndex = 13;
+            this.btnModeDapAn1Classic.Text = "Classic";
+            this.ttpMode1DapAnClassic.SetToolTip(this.btnModeDapAn1Classic, "Nhập lần lượt các đáp án \r\ntheo kiểu cổ điển nhanh gọn.");
+            this.btnModeDapAn1Classic.UseVisualStyleBackColor = false;
+            // 
+            // ttpMode1DapAnClassic
+            // 
+            this.ttpMode1DapAnClassic.AutomaticDelay = 0;
+            this.ttpMode1DapAnClassic.AutoPopDelay = 6000;
+            this.ttpMode1DapAnClassic.InitialDelay = 0;
+            this.ttpMode1DapAnClassic.ReshowDelay = 0;
+            this.ttpMode1DapAnClassic.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttpMode1DapAnClassic.ToolTipTitle = "Mô tả";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -489,6 +556,7 @@ namespace OnThiTracNghiem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "FormMain";
             this.Text = "Giúp anh trả lời những câu hỏi!";
             this.tctrlMainMenu.ResumeLayout(false);
@@ -541,6 +609,8 @@ namespace OnThiTracNghiem
         private System.Windows.Forms.Label lblSoLanVung;
         private System.Windows.Forms.Label lblSoCauChuaVung;
         private System.Windows.Forms.ToolTip ttpSoLanVung;
+        private Button btnModeDapAn1Classic;
+        private ToolTip ttpMode1DapAnClassic;
     }
 }
 

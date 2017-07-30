@@ -14,16 +14,34 @@ namespace OnThiTracNghiem
     {
         DuLieuVung duLieuVung;
         ThietDat thietDat;
+        DapAn dapAn;
+
         public FormMain()
         {
             InitializeComponent();
+            if (Screen.PrimaryScreen.WorkingArea.Width == 1366)
+            {
+                this.Width = 400;
+                this.Height = 300;
+            }
+            else
+            {
+                this.Width = Screen.PrimaryScreen.WorkingArea.Width / 3;
+                this.Height = this.Width / 4 * 3;
+            }
 
             duLieuVung = new DuLieuVung(numSoLanVung, lblSoCauChuaVung);
             duLieuVung.LoadFile();
 
             thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn);
             thietDat.LoadFile();
-            
+
+            dapAn = new DapAn();
+            dapAn.LoadFile();
+            if (dapAn.SoCau < 40)
+                this.numSoCauThi.Value = dapAn.SoCau;
+            else this.numSoCauThi.Value = 40;
+            this.numSoCauThi.Maximum = dapAn.SoCau;
         }
 
         private void ChonNhieuDapAn()
@@ -72,6 +90,9 @@ namespace OnThiTracNghiem
                 thietDat.ThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked);
         }
 
-        
+        private void btnModeDapAn1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
