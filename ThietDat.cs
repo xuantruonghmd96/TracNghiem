@@ -18,6 +18,32 @@ namespace OnThiTracNghiem
         private Button m_btnMotDapAn;
         private Button m_btnNhieuDapAn;
 
+        public int IntSoPhuongAn
+        {
+            get
+            {
+                return m_intSoPhuongAn;
+            }
+
+            set
+            {
+                m_intSoPhuongAn = value;
+            }
+        }
+
+        public bool BoolSoDapAnDuocChon
+        {
+            get
+            {
+                return m_boolSoDapAnDuocChon;
+            }
+
+            set
+            {
+                m_boolSoDapAnDuocChon = value;
+            }
+        }
+
         public ThietDat(NumericUpDown numSoPhuongAn, CheckBox chbxSoDapAnDuocChon, Button btnMotDapAn, Button btnNhieuDapAn)
         {
             m_soDapAnDuocChon = chbxSoDapAnDuocChon;
@@ -47,8 +73,8 @@ namespace OnThiTracNghiem
                 m_btnNhieuDapAn.BackColor = Color.Orange;
                 m_btnMotDapAn.BackColor = Color.Transparent;
             }
-            m_intSoPhuongAn = (int)m_soPhuongAn.Value;
-            m_boolSoDapAnDuocChon = m_soDapAnDuocChon.Checked;
+            IntSoPhuongAn = (int)m_soPhuongAn.Value;
+            BoolSoDapAnDuocChon = m_soDapAnDuocChon.Checked;
         }
 
         public void SaveFile()
@@ -65,8 +91,8 @@ namespace OnThiTracNghiem
 
         public void ThayDoiThietDat(int soPhuongAn, bool soDapAnDuocChon)
         {
-            m_intSoPhuongAn = soPhuongAn;
-            m_boolSoDapAnDuocChon = soDapAnDuocChon;
+            IntSoPhuongAn = soPhuongAn;
+            BoolSoDapAnDuocChon = soDapAnDuocChon;
             m_soPhuongAn.Value = soPhuongAn;
             m_soDapAnDuocChon.Checked = soDapAnDuocChon;
             SaveFile();
@@ -74,7 +100,7 @@ namespace OnThiTracNghiem
 
         public bool CoThayDoiThietDat(int soPhuongAn, bool soDapAnDuocChon)
         {
-            return (soPhuongAn != m_intSoPhuongAn) || (soDapAnDuocChon != m_boolSoDapAnDuocChon);
+            return (soPhuongAn != IntSoPhuongAn) || (soDapAnDuocChon != BoolSoDapAnDuocChon);
         }
 
     }

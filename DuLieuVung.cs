@@ -68,5 +68,21 @@ namespace OnThiTracNghiem
         {
             return numericSoLanVung != soLanVung;
         }
+
+        public void ResetAll()
+        {
+            soCauChuaVung = soCau;
+            for (int i = 0; i < soCau; i++)
+                duLieu[i] = 0;
+            lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+        }
+
+        public void ResetCau(int cau)
+        {
+            if (duLieu[cau] >= soLanVung)
+                soCauChuaVung++;
+            duLieu[cau] = 0;
+            lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace OnThiTracNghiem
             this.numSoCauThi = new System.Windows.Forms.NumericUpDown();
             this.lblThi = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnModeDapAn1Classic = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnModeDapAn2 = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@ namespace OnThiTracNghiem
             this.label3 = new System.Windows.Forms.Label();
             this.chbxSoDapAnDuocChon = new System.Windows.Forms.CheckBox();
             this.ttpSoLanVung = new System.Windows.Forms.ToolTip(this.components);
-            this.btnModeDapAn1Classic = new System.Windows.Forms.Button();
             this.ttpMode1DapAnClassic = new System.Windows.Forms.ToolTip(this.components);
             this.tctrlMainMenu.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -321,6 +321,22 @@ namespace OnThiTracNghiem
             this.tabPage3.Text = "Sửa đáp án";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnModeDapAn1Classic
+            // 
+            this.btnModeDapAn1Classic.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModeDapAn1Classic.BackColor = System.Drawing.Color.Orange;
+            this.btnModeDapAn1Classic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModeDapAn1Classic.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnModeDapAn1Classic.Location = new System.Drawing.Point(231, 73);
+            this.btnModeDapAn1Classic.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModeDapAn1Classic.Name = "btnModeDapAn1Classic";
+            this.btnModeDapAn1Classic.Size = new System.Drawing.Size(71, 28);
+            this.btnModeDapAn1Classic.TabIndex = 13;
+            this.btnModeDapAn1Classic.Text = "Classic";
+            this.ttpMode1DapAnClassic.SetToolTip(this.btnModeDapAn1Classic, "Kiểu cổ điển nhanh gọn.\r\nNhập lần lượt các đáp án\r\nbằng SỐ, bắt đầu từ 1");
+            this.btnModeDapAn1Classic.UseVisualStyleBackColor = false;
+            this.btnModeDapAn1Classic.Click += new System.EventHandler(this.btnModeDapAn1Classic_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -520,21 +536,6 @@ namespace OnThiTracNghiem
             this.ttpSoLanVung.ReshowDelay = 0;
             this.ttpSoLanVung.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttpSoLanVung.ToolTipTitle = "Mô tả";
-            // 
-            // btnModeDapAn1Classic
-            // 
-            this.btnModeDapAn1Classic.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnModeDapAn1Classic.BackColor = System.Drawing.Color.Orange;
-            this.btnModeDapAn1Classic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModeDapAn1Classic.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btnModeDapAn1Classic.Location = new System.Drawing.Point(231, 73);
-            this.btnModeDapAn1Classic.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModeDapAn1Classic.Name = "btnModeDapAn1Classic";
-            this.btnModeDapAn1Classic.Size = new System.Drawing.Size(71, 28);
-            this.btnModeDapAn1Classic.TabIndex = 13;
-            this.btnModeDapAn1Classic.Text = "Classic";
-            this.ttpMode1DapAnClassic.SetToolTip(this.btnModeDapAn1Classic, "Nhập lần lượt các đáp án \r\ntheo kiểu cổ điển nhanh gọn.");
-            this.btnModeDapAn1Classic.UseVisualStyleBackColor = false;
             // 
             // ttpMode1DapAnClassic
             // 

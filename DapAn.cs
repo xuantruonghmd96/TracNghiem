@@ -50,7 +50,7 @@ namespace OnThiTracNghiem
 
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.fileNameDuLieuVung);
+            StreamWriter file = new StreamWriter(Contents.fileNameDapAn);
             file.WriteLine(SoCau);
             for (int i = 0; i < SoCau; i++)
                 file.WriteLine(DapAns[i]);

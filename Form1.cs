@@ -60,6 +60,7 @@ namespace OnThiTracNghiem
 
         private void chbxSoDapAnDuocChon_CheckedChanged(object sender, EventArgs e)
         {
+            System.Media.SystemSounds.Hand.Play();
             CheckBox checkBox = sender as CheckBox;
             chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipY);
             if (checkBox.Checked)   //Nhieu dap an
@@ -93,6 +94,37 @@ namespace OnThiTracNghiem
         private void btnModeDapAn1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private bool KiemTraDapAnHopLe(string s)
+        {
+            for (int j = 0; j < s.Length; j++)
+                if (s[j] < '1' || s[j] > thietDat.IntSoPhuongAn + 48)
+                    return false;
+            return true;
+        }
+
+        private void btnModeDapAn1Classic_Click(object sender, EventArgs e)
+        {
+            List<string> lines = new List<string>();
+            string s;
+            for (int i = 0; i < dapAn.SoCau; i++)
+            {
+                s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "");
+                while (KiemTraDapAnHopLe(s) == false)
+                {
+                    MessageBox.Show("Mời nhập lại", "Sai định dạng đáp án", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "");
+                }
+                lines.Add(s);
+            }
+
+            for (int i = 0; i < dapAn.SoCau; i++)
+                if (dapAn.DapAns[i] != lines[i])
+                    duLieuVung.ResetCau(i);
+            duLieuVung.SaveFile();
+            dapAn.DapAns = lines;
+            dapAn.SaveFile();
         }
     }
 }
