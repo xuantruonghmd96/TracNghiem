@@ -63,6 +63,16 @@ namespace OnThiTracNghiem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _002 {
+            get {
+                object obj = ResourceManager.GetObject("002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap switch_button {
             get {
                 object obj = ResourceManager.GetObject("switch button", resourceCulture);

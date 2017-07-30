@@ -126,5 +126,18 @@ namespace OnThiTracNghiem
             dapAn.DapAns = lines;
             dapAn.SaveFile();
         }
+
+        private void btnThi_Click(object sender, EventArgs e)
+        {
+            List<int> DScauThi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            int soCauKhongThi = dapAn.SoCau - (int)numSoCauThi.Value;
+            Random rnd = new Random();
+            for (int i = 0; i<soCauKhongThi; i++)
+                DScauThi.RemoveAt(rnd.Next(0, DScauThi.Count));
+
+            Form frm = new FormThi(DScauThi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,10 @@ namespace OnThiTracNghiem
         public static string fileNameDapAn = @"Sources/DapAn.txt";
         public static string fileNameDuLieuVung = @"Sources/DuLieuVung.txt";
         public static string fileNameThietDat = @"Sources/ThietDat.txt";
+        public static Color[] colorCheckBoxChonDapAn = { SystemColors.ActiveCaption, Color.Orange };
+        public static int[] locationYPanelChonDapAn = { 30, 240, 170, 100, 30 };
+        public static string dauFileImage = @"Cau hoi/Cau ";
+        public static string duoiFileImage = @".bmp";
     }
 
     public static class Prompt

@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace OnThiTracNghiem
 {
-    class ThietDat
+    public class ThietDat
     {
-        private int m_intSoPhuongAn;
-        private bool m_boolSoDapAnDuocChon;
+        private int intSoPhuongAn;
+        private bool boolSoDapAnDuocChon;
         private NumericUpDown m_soPhuongAn;
         private CheckBox m_soDapAnDuocChon;
         private Button m_btnMotDapAn;
@@ -22,12 +22,12 @@ namespace OnThiTracNghiem
         {
             get
             {
-                return m_intSoPhuongAn;
+                return intSoPhuongAn;
             }
 
             set
             {
-                m_intSoPhuongAn = value;
+                intSoPhuongAn = value;
             }
         }
 
@@ -35,12 +35,12 @@ namespace OnThiTracNghiem
         {
             get
             {
-                return m_boolSoDapAnDuocChon;
+                return boolSoDapAnDuocChon;
             }
 
             set
             {
-                m_boolSoDapAnDuocChon = value;
+                boolSoDapAnDuocChon = value;
             }
         }
 

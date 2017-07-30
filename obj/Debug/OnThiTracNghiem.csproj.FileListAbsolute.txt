@@ -16,3 +16,5 @@ D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.csprojResolveAssemblyReferen
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormMain.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.Properties.Resources.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.csproj.GenerateResource.Cache
+D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormThi.resources
+D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormKetThucThi.resources

@@ -7,7 +7,7 @@ using System.IO;
 
 namespace OnThiTracNghiem
 {
-    class DapAn
+    public class DapAn
     {
         private int m_soCau;
         private List<string> m_dapAn;
