@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThi));
             this.lblDemCau = new System.Windows.Forms.Label();
             this.pnlNutChonPhuongAn = new System.Windows.Forms.Panel();
-            this.btnOK = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnOK = new System.Windows.Forms.Button();
             this.pbxCauHoi = new System.Windows.Forms.PictureBox();
             this.pnlNutChonPhuongAn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCauHoi)).BeginInit();
@@ -45,15 +45,15 @@
             // lblDemCau
             // 
             this.lblDemCau.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDemCau.AutoSize = true;
             this.lblDemCau.BackColor = System.Drawing.Color.Transparent;
             this.lblDemCau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDemCau.ForeColor = System.Drawing.Color.Orange;
-            this.lblDemCau.Location = new System.Drawing.Point(834, 515);
+            this.lblDemCau.Location = new System.Drawing.Point(830, 520);
             this.lblDemCau.Name = "lblDemCau";
-            this.lblDemCau.Size = new System.Drawing.Size(46, 20);
+            this.lblDemCau.Size = new System.Drawing.Size(154, 20);
             this.lblDemCau.TabIndex = 1;
             this.lblDemCau.Text = "Câu ";
+            this.lblDemCau.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlNutChonPhuongAn
             // 
@@ -67,21 +67,6 @@
             this.pnlNutChonPhuongAn.Name = "pnlNutChonPhuongAn";
             this.pnlNutChonPhuongAn.Size = new System.Drawing.Size(60, 382);
             this.pnlNutChonPhuongAn.TabIndex = 3;
-            // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOK.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOK.Location = new System.Drawing.Point(878, 443);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(60, 60);
-            this.btnOK.TabIndex = 4;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // checkBox5
             // 
@@ -168,6 +153,21 @@
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // btnOK
+            // 
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOK.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOK.Location = new System.Drawing.Point(878, 443);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(60, 60);
+            this.btnOK.TabIndex = 4;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // pbxCauHoi
             // 
             this.pbxCauHoi.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -185,9 +185,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.pnlNutChonPhuongAn);
             this.Controls.Add(this.lblDemCau);
             this.Controls.Add(this.pbxCauHoi);
+            this.Controls.Add(this.pnlNutChonPhuongAn);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -197,7 +197,6 @@
             this.pnlNutChonPhuongAn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCauHoi)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

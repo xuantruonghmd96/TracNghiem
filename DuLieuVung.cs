@@ -18,6 +18,32 @@ namespace OnThiTracNghiem
         private NumericUpDown numSoLanVung;
         private Label lblSoCauChuaVung;
 
+        public List<int> DuLieu
+        {
+            get
+            {
+                return duLieu;
+            }
+
+            set
+            {
+                duLieu = value;
+            }
+        }
+
+        public int SoCauChuaVung
+        {
+            get
+            {
+                return soCauChuaVung;
+            }
+
+            set
+            {
+                soCauChuaVung = value;
+            }
+        }
+
         public DuLieuVung(NumericUpDown numericSoLanVung, Label labelSoCauChuaVung)
         {
             numSoLanVung = numericSoLanVung;
@@ -32,35 +58,45 @@ namespace OnThiTracNghiem
             Int32.TryParse(a[1], out soLanVung);
             Int32.TryParse(a[2], out soCauChuaVung);
 
-            lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+            lblSoCauChuaVung.Text = SoCauChuaVung.ToString();
             numSoLanVung.Value = soLanVung;
 
-            duLieu = new List<int>();
+            DuLieu = new List<int>();
             for (int i=1; i<lines.Count(); i++)
-                duLieu.Add(Int32.Parse(lines[i]));
+                DuLieu.Add(Int32.Parse(lines[i]));
         }
 
         public void SaveFile()
         {
             StreamWriter file = new StreamWriter(Contents.fileNameDuLieuVung);
-            file.WriteLine("{0} {1} {2}", soCau, soLanVung, soCauChuaVung);
+            file.WriteLine("{0} {1} {2}", soCau, soLanVung, SoCauChuaVung);
             for (int i=0; i<soCau; i++)
-                file.WriteLine(duLieu[i]);
+                file.WriteLine(DuLieu[i]);
             file.Close();
             file.Dispose();
+        }
+
+        public void Tang1LanTraLoiDung(int cau)
+        {
+            duLieu[cau]++;
+            if (duLieu[cau] == soLanVung)
+            {
+                soCauChuaVung--;
+                lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+            }
         }
 
         public void ThayDoiSoLanVung(int numericSoLanVung)
         {
             soLanVung = numericSoLanVung;
-            soCauChuaVung = 0;
+            SoCauChuaVung = 0;
             for (int i=0; i<soCau; i++)
             {
-                if (duLieu[i] < soLanVung)
-                    soCauChuaVung++;
+                if (DuLieu[i] < soLanVung)
+                    SoCauChuaVung++;
             }
             numSoLanVung.Value = soLanVung;
-            lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+            lblSoCauChuaVung.Text = SoCauChuaVung.ToString();
             SaveFile();
         }
 
@@ -71,18 +107,18 @@ namespace OnThiTracNghiem
 
         public void ResetAll()
         {
-            soCauChuaVung = soCau;
+            SoCauChuaVung = soCau;
             for (int i = 0; i < soCau; i++)
-                duLieu[i] = 0;
-            lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+                DuLieu[i] = 0;
+            lblSoCauChuaVung.Text = SoCauChuaVung.ToString();
         }
 
         public void ResetCau(int cau)
         {
-            if (duLieu[cau] >= soLanVung)
-                soCauChuaVung++;
-            duLieu[cau] = 0;
-            lblSoCauChuaVung.Text = soCauChuaVung.ToString();
+            if (DuLieu[cau] >= soLanVung)
+                SoCauChuaVung++;
+            DuLieu[cau] = 0;
+            lblSoCauChuaVung.Text = SoCauChuaVung.ToString();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace OnThiTracNghiem
         private CheckBox m_soDapAnDuocChon;
         private Button m_btnMotDapAn;
         private Button m_btnNhieuDapAn;
+        private string m_duoiFileImage;
 
         public int IntSoPhuongAn
         {
@@ -41,6 +42,19 @@ namespace OnThiTracNghiem
             set
             {
                 boolSoDapAnDuocChon = value;
+            }
+        }
+
+        public string DuoiFileImage
+        {
+            get
+            {
+                return m_duoiFileImage;
+            }
+
+            set
+            {
+                m_duoiFileImage = value;
             }
         }
 
@@ -75,6 +89,7 @@ namespace OnThiTracNghiem
             }
             IntSoPhuongAn = (int)m_soPhuongAn.Value;
             BoolSoDapAnDuocChon = m_soDapAnDuocChon.Checked;
+            m_duoiFileImage = lines[2];
         }
 
         public void SaveFile()
@@ -82,6 +97,7 @@ namespace OnThiTracNghiem
             StreamWriter file = new StreamWriter(Contents.fileNameThietDat);
             file.WriteLine(m_soPhuongAn.Value);
             file.WriteLine(m_soDapAnDuocChon.Checked);
+            file.WriteLine(m_duoiFileImage);
             //if (m_soDapAnDuocChon.Checked == false)
             //    file.WriteLine(1);
             //else file.WriteLine(0);

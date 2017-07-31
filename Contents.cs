@@ -40,7 +40,7 @@ namespace OnThiTracNghiem
             prompt.Controls.Add(textLabel);
             prompt.AcceptButton = confirmation;
 
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "1";
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "-1";
         }
     }
 }

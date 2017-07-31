@@ -108,9 +108,15 @@ namespace OnThiTracNghiem
         {
             List<string> lines = new List<string>();
             string s;
+            bool broken = false;
             for (int i = 0; i < dapAn.SoCau; i++)
             {
                 s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "");
+                if (s == "-1")
+                {
+                    broken = true;
+                    break;
+                }
                 while (KiemTraDapAnHopLe(s) == false)
                 {
                     MessageBox.Show("Mời nhập lại", "Sai định dạng đáp án", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -118,12 +124,14 @@ namespace OnThiTracNghiem
                 }
                 lines.Add(s);
             }
-
+            if (broken)
+                return;
             for (int i = 0; i < dapAn.SoCau; i++)
                 if (dapAn.DapAns[i] != lines[i])
                     duLieuVung.ResetCau(i);
             duLieuVung.SaveFile();
             dapAn.DapAns = lines;
+            dapAn.CanChinhDapAn();
             dapAn.SaveFile();
         }
 
@@ -137,6 +145,7 @@ namespace OnThiTracNghiem
 
             Form frm = new FormThi(DScauThi, duLieuVung, thietDat, dapAn);
             frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
 
         

@@ -75,5 +75,18 @@ namespace OnThiTracNghiem
                 DapAns[i] = dapAn[i];
             }
         }
+
+        public void CanChinhDapAn()
+        {
+            for (int i = 0; i < m_soCau; i++)
+            {
+                m_dapAn[i] = new string(m_dapAn[i].ToCharArray().Distinct().ToArray());
+                char[] temp = m_dapAn[i].ToCharArray();
+                Array.Sort(temp);
+                m_dapAn[i] = new string(temp);
+            }
+
+            
+        }
     }
 }

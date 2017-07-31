@@ -33,14 +33,13 @@
             this.tbxCacCauSai = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblSoCauDung
             // 
             this.lblSoCauDung.AutoSize = true;
             this.lblSoCauDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoCauDung.Location = new System.Drawing.Point(45, 52);
+            this.lblSoCauDung.Location = new System.Drawing.Point(95, 52);
             this.lblSoCauDung.Name = "lblSoCauDung";
             this.lblSoCauDung.Size = new System.Drawing.Size(52, 16);
             this.lblSoCauDung.TabIndex = 0;
@@ -50,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 21);
+            this.label1.Location = new System.Drawing.Point(82, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 1;
@@ -61,15 +60,16 @@
             this.tbxCacCauSai.Location = new System.Drawing.Point(35, 133);
             this.tbxCacCauSai.Multiline = true;
             this.tbxCacCauSai.Name = "tbxCacCauSai";
+            this.tbxCacCauSai.ReadOnly = true;
             this.tbxCacCauSai.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxCacCauSai.Size = new System.Drawing.Size(113, 107);
+            this.tbxCacCauSai.Size = new System.Drawing.Size(213, 155);
             this.tbxCacCauSai.TabIndex = 2;
             this.tbxCacCauSai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 91);
+            this.label2.Location = new System.Drawing.Point(104, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 16);
             this.label2.TabIndex = 3;
@@ -78,32 +78,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 114);
+            this.label3.Location = new System.Drawing.Point(80, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Câu - Đáp án - Chọn";
             // 
-            // btnOK
-            // 
-            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOK.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOK.Location = new System.Drawing.Point(57, 251);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(70, 30);
-            this.btnOK.TabIndex = 5;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            // 
             // FormKetThucThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 291);
-            this.Controls.Add(this.btnOK);
+            this.ClientSize = new System.Drawing.Size(284, 300);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxCacCauSai);
@@ -126,6 +111,5 @@
         private System.Windows.Forms.TextBox tbxCacCauSai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnOK;
     }
 }

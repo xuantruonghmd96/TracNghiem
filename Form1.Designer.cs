@@ -284,9 +284,19 @@ namespace OnThiTracNghiem
             0,
             0,
             0});
+            this.numSoCauThi.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numSoCauThi.Name = "numSoCauThi";
             this.numSoCauThi.Size = new System.Drawing.Size(60, 22);
             this.numSoCauThi.TabIndex = 13;
+            this.numSoCauThi.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblThi
             // 
