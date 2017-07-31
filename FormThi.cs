@@ -23,7 +23,9 @@ namespace OnThiTracNghiem
         {
             InitializeComponent();
             DrawNutChonPhuongAn();
-            LoadCauVaoThi();
+            if (cauHienTai <= m_dsCauHoi.Count)
+                LoadCauVaoThi();
+            else KetThucThi();
         }
 
         public FormThi(List<int> m_dsCauHoi, DuLieuVung m_duLieuVung, ThietDat m_thietDat, DapAn m_dapAn)
@@ -34,7 +36,9 @@ namespace OnThiTracNghiem
             this.m_dapAn = m_dapAn;
             InitializeComponent();
             DrawNutChonPhuongAn();
-            LoadCauVaoThi();
+            if (cauHienTai <= m_dsCauHoi.Count)
+                LoadCauVaoThi();
+            else KetThucThi();
         }
 
         public string LayFilePathImage(int i)
@@ -59,7 +63,7 @@ namespace OnThiTracNghiem
 
         public void LoadCauVaoThi()
         {
-            string imageFilePath = LayFilePathImage(cauHienTai);
+            string imageFilePath = LayFilePathImage(m_dsCauHoi[cauHienTai - 1]);
             LoadImage(imageFilePath);
             cauHienTai++;
         }
@@ -86,9 +90,125 @@ namespace OnThiTracNghiem
             checkBox5.BackColor = Contents.colorCheckBoxChonDapAn[0];
         }
 
+        private void InitializeKetThuc()
+        {
+            Label lblSoCauDung = new System.Windows.Forms.Label();
+            Label label1 = new System.Windows.Forms.Label();
+            TextBox tbxCacCauSai = new System.Windows.Forms.TextBox();
+            Label label2 = new System.Windows.Forms.Label();
+            Label label3 = new System.Windows.Forms.Label();
+            this.Controls.Clear();
+            this.Controls.Add(lblSoCauDung);
+            this.Controls.Add(label1);
+            this.Controls.Add(tbxCacCauSai);
+            this.Controls.Add(label2);
+            this.Controls.Add(label3);
+            this.SuspendLayout();
+            // 
+            // lblSoCauDung
+            // 
+            lblSoCauDung.AutoSize = true;
+            lblSoCauDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblSoCauDung.Location = new System.Drawing.Point(45, 52);
+            lblSoCauDung.Name = "lblSoCauDung";
+            lblSoCauDung.Size = new System.Drawing.Size(52, 16);
+            lblSoCauDung.TabIndex = 0;
+            List<string> cacCauSai;
+            lblSoCauDung.Text = TinhSoCauDung(out cacCauSai).ToString() + " / " + m_dsCauHoi.Count + " cau";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(32, 21);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(116, 16);
+            label1.TabIndex = 1;
+            label1.Text = "Bạn trả lời đúng";
+            // 
+            // tbxCacCauSai
+            // 
+            tbxCacCauSai.Location = new System.Drawing.Point(35, 133);
+            tbxCacCauSai.Multiline = true;
+            tbxCacCauSai.Name = "tbxCacCauSai";
+            tbxCacCauSai.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            tbxCacCauSai.Size = new System.Drawing.Size(113, 107);
+            tbxCacCauSai.TabIndex = 2;
+            tbxCacCauSai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            tbxCacCauSai.ReadOnly = true;
+            for (int i = 0; i < cacCauSai.Count; i++)
+                tbxCacCauSai.Text += cacCauSai[i] + Environment.NewLine;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(54, 91);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(78, 16);
+            label2.TabIndex = 3;
+            label2.Text = "Các câu sai";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(30, 114);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(126, 16);
+            label3.TabIndex = 4;
+            label3.Text = "Câu - Đáp án - Chọn";
+            // 
+            // FormKetThucThi
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(184, 261);
+            this.Controls.Add(label3);
+            this.Controls.Add(label2);
+            this.Controls.Add(tbxCacCauSai);
+            this.Controls.Add(label1);
+            this.Controls.Add(lblSoCauDung);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FormKetThucThi";
+            this.Text = "Hoàn thành Thi";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+            this.MinimumSize = new Size(200, 300);
+            this.Width = 200;
+            this.Height = 300;
+
+        }
+
+        private int TinhSoCauDung(out List<string> cacCauSai)
+        {
+            int res = 0;
+            cacCauSai = new List<string>();
+            for (int i = 0; i < m_dsCauHoi.Count; i++)
+            {
+                if (m_dapAn.DungDapAnMotCau(m_dsCauHoi[i] - 1, dsPhuongAnDaChon[i]))
+                    res++;
+                else
+                {
+                    string s;
+                    if (m_dsCauHoi[i] - 1 < 10)
+                        s = "Câu   ";
+                    else if (m_dsCauHoi[i] - 1 < 100)
+                        s = "Câu  ";
+                    else s = "Câu ";
+                    s += (m_dsCauHoi[i]).ToString();
+                    s += " - " + m_dapAn.DapAns[m_dsCauHoi[i]-1] + " - " + dsPhuongAnDaChon[i];
+                    cacCauSai.Add(s);
+                }
+            }
+
+            return res;
+        }
+
         private void KetThucThi()
         {
-            MessageBox.Show("KetThuc THI");
+            InitializeKetThuc();
+            //MessageBox.Show("KetThuc THI");
         }
 
         private void KetThucCau(string dapAn)
@@ -111,7 +231,7 @@ namespace OnThiTracNghiem
         {
             chbx.BackColor = GetColorCheckBoxChonPhuongAn(chbx.BackColor);
             if (m_thietDat.BoolSoDapAnDuocChon == false)
-                KetThucCau((chbx.Text[0] - 48).ToString());
+                KetThucCau((chbx.Text[0] - 'A' + 1).ToString());
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

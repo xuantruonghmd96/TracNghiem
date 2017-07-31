@@ -64,9 +64,9 @@ namespace OnThiTracNghiem
             this.numSoPhuongAn = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.chbxSoDapAnDuocChon = new System.Windows.Forms.CheckBox();
             this.ttpSoLanVung = new System.Windows.Forms.ToolTip(this.components);
             this.ttpMode1DapAnClassic = new System.Windows.Forms.ToolTip(this.components);
-            this.chbxSoDapAnDuocChon = new System.Windows.Forms.CheckBox();
             this.tctrlMainMenu.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -254,7 +254,7 @@ namespace OnThiTracNghiem
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(376, 232);
+            this.tabPage2.Size = new System.Drawing.Size(392, 271);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thi";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -315,7 +315,7 @@ namespace OnThiTracNghiem
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(376, 232);
+            this.tabPage3.Size = new System.Drawing.Size(392, 271);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Sửa đáp án";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -416,7 +416,7 @@ namespace OnThiTracNghiem
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(376, 232);
+            this.tabPage4.Size = new System.Drawing.Size(392, 271);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Thiết đặt";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -522,6 +522,21 @@ namespace OnThiTracNghiem
             this.label3.TabIndex = 2;
             this.label3.Text = "Số phương án của mỗi câu:";
             // 
+            // chbxSoDapAnDuocChon
+            // 
+            this.chbxSoDapAnDuocChon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbxSoDapAnDuocChon.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chbxSoDapAnDuocChon.BackColor = System.Drawing.Color.Transparent;
+            this.chbxSoDapAnDuocChon.BackgroundImage = global::OnThiTracNghiem.Properties.Resources.switch_button1;
+            this.chbxSoDapAnDuocChon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chbxSoDapAnDuocChon.Location = new System.Drawing.Point(151, 169);
+            this.chbxSoDapAnDuocChon.Margin = new System.Windows.Forms.Padding(0);
+            this.chbxSoDapAnDuocChon.Name = "chbxSoDapAnDuocChon";
+            this.chbxSoDapAnDuocChon.Size = new System.Drawing.Size(74, 32);
+            this.chbxSoDapAnDuocChon.TabIndex = 3;
+            this.chbxSoDapAnDuocChon.UseVisualStyleBackColor = false;
+            this.chbxSoDapAnDuocChon.CheckedChanged += new System.EventHandler(this.chbxSoDapAnDuocChon_CheckedChanged);
+            // 
             // ttpSoLanVung
             // 
             this.ttpSoLanVung.AutomaticDelay = 0;
@@ -539,21 +554,6 @@ namespace OnThiTracNghiem
             this.ttpMode1DapAnClassic.ReshowDelay = 0;
             this.ttpMode1DapAnClassic.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttpMode1DapAnClassic.ToolTipTitle = "Mô tả";
-            // 
-            // chbxSoDapAnDuocChon
-            // 
-            this.chbxSoDapAnDuocChon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbxSoDapAnDuocChon.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chbxSoDapAnDuocChon.BackColor = System.Drawing.Color.Transparent;
-            this.chbxSoDapAnDuocChon.BackgroundImage = global::OnThiTracNghiem.Properties.Resources.switch_button1;
-            this.chbxSoDapAnDuocChon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chbxSoDapAnDuocChon.Location = new System.Drawing.Point(151, 169);
-            this.chbxSoDapAnDuocChon.Margin = new System.Windows.Forms.Padding(0);
-            this.chbxSoDapAnDuocChon.Name = "chbxSoDapAnDuocChon";
-            this.chbxSoDapAnDuocChon.Size = new System.Drawing.Size(74, 32);
-            this.chbxSoDapAnDuocChon.TabIndex = 3;
-            this.chbxSoDapAnDuocChon.UseVisualStyleBackColor = false;
-            this.chbxSoDapAnDuocChon.CheckedChanged += new System.EventHandler(this.chbxSoDapAnDuocChon_CheckedChanged);
             // 
             // FormMain
             // 
