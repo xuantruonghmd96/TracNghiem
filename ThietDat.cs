@@ -76,16 +76,16 @@ namespace OnThiTracNghiem
                 if (m_soDapAnDuocChon.Checked == true)
                     m_soDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
                 m_soDapAnDuocChon.Checked = false;
-                m_btnMotDapAn.BackColor = Color.Orange;
-                m_btnNhieuDapAn.BackColor = Color.Transparent;
+                m_btnMotDapAn.BackColor = Contents.colorOn;
+                m_btnNhieuDapAn.BackColor = Contents.colorOff;
             }
             else
             {
                 if (m_soDapAnDuocChon.Checked == false)
                     m_soDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
                 m_soDapAnDuocChon.Checked = true;
-                m_btnNhieuDapAn.BackColor = Color.Orange;
-                m_btnMotDapAn.BackColor = Color.Transparent;
+                m_btnNhieuDapAn.BackColor = Contents.colorOn;
+                m_btnMotDapAn.BackColor = Contents.colorOff;
             }
             IntSoPhuongAn = (int)m_soPhuongAn.Value;
             BoolSoDapAnDuocChon = m_soDapAnDuocChon.Checked;

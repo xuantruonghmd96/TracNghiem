@@ -47,15 +47,15 @@ namespace OnThiTracNghiem
         private void ChonNhieuDapAn()
         {
             chbxSoDapAnDuocChon.Checked = true;
-            btnMotDapAn.BackColor = Color.Transparent;
-            btnNhieuDapAn.BackColor = Color.Orange;
+            btnMotDapAn.BackColor = Contents.colorOff;
+            btnNhieuDapAn.BackColor = Contents.colorOn;
         }
 
         private void ChonMotDapAn()
         {
             chbxSoDapAnDuocChon.Checked = false;
-            btnMotDapAn.BackColor = Color.Orange;
-            btnNhieuDapAn.BackColor = Color.Transparent;
+            btnMotDapAn.BackColor = Contents.colorOn;
+            btnNhieuDapAn.BackColor = Contents.colorOff;
         }
 
         private void chbxSoDapAnDuocChon_CheckedChanged(object sender, EventArgs e)
@@ -93,7 +93,10 @@ namespace OnThiTracNghiem
 
         private void btnModeDapAn1_Click(object sender, EventArgs e)
         {
-            
+            List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
 
         private bool KiemTraDapAnHopLe(string s)
@@ -111,7 +114,7 @@ namespace OnThiTracNghiem
             bool broken = false;
             for (int i = 0; i < dapAn.SoCau; i++)
             {
-                s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "");
+                s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "Cho anh sửa chữa những lỗi lầm!");
                 if (s == "-1")
                 {
                     broken = true;
@@ -120,7 +123,17 @@ namespace OnThiTracNghiem
                 while (KiemTraDapAnHopLe(s) == false)
                 {
                     MessageBox.Show("Mời nhập lại", "Sai định dạng đáp án", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "");
+                    s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "Cho anh sửa chữa những lỗi lầm!");
+                    if (s == "-1")
+                    {
+                        broken = true;
+                        break;
+                    }
+                }
+                if (s == "-1")
+                {
+                    broken = true;
+                    break;
                 }
                 lines.Add(s);
             }
@@ -138,16 +151,76 @@ namespace OnThiTracNghiem
         private void btnThi_Click(object sender, EventArgs e)
         {
             List<int> DScauThi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            var rnd = new Random();
+            DScauThi = DScauThi.OrderBy(item => rnd.Next()).ToList();
             int soCauKhongThi = dapAn.SoCau - (int)numSoCauThi.Value;
-            Random rnd = new Random();
-            for (int i = 0; i<soCauKhongThi; i++)
-                DScauThi.RemoveAt(rnd.Next(0, DScauThi.Count));
+            DScauThi.RemoveRange(0, soCauKhongThi);
 
             Form frm = new FormThi(DScauThi, duLieuVung, thietDat, dapAn);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
 
-        
+        private void btnModeDapAn2_Click(object sender, EventArgs e)
+        {
+            int cauCanSua;
+            cauCanSua = PromptNumericUpDown.ShowDialog("Câu cần sửa: ", "Cho anh sửa chữa những lỗi lầm!", 1, dapAn.SoCau);
+            if (cauCanSua == -1)
+                return;
+
+            List<int> DScauHoi = new List<int>();
+            DScauHoi.Add(cauCanSua);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void btnMode1_Click(object sender, EventArgs e)
+        {
+            List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            var rnd = new Random();
+            DScauHoi = DScauHoi.OrderBy(item => rnd.Next()).ToList();
+
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void btnMode2_Click(object sender, EventArgs e)
+        {
+            List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
+
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void btnMode3_Click(object sender, EventArgs e)
+        {
+            List<int> DScauHoi = duLieuVung.LayDScauChuaVung();
+            for (int i = 0; i < DScauHoi.Count; i++)
+                DScauHoi[i]++;
+            var rnd = new Random();
+            DScauHoi = DScauHoi.OrderBy(item => rnd.Next()).ToList();
+
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void btnMode4_Click(object sender, EventArgs e)
+        {
+            int cauCanSua;
+            cauCanSua = PromptNumericUpDown.ShowDialog("Câu cần học: ", "Giúp anh trả lời những câu hỏi!", 1, dapAn.SoCau);
+            if (cauCanSua == -1)
+                return;
+
+            List<int> DScauHoi = new List<int>();
+            DScauHoi.Add(cauCanSua);
+
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
     }
 }

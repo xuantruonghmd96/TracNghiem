@@ -12,12 +12,12 @@ namespace OnThiTracNghiem
 {
     public partial class FormThi : Form
     {
-        private List<int> m_dsCauHoi;
-        private DuLieuVung m_duLieuVung;
-        private ThietDat m_thietDat;
-        private DapAn m_dapAn;
-        private int cauHienTai = 1;
-        private List<string> dsPhuongAnDaChon = new List<string>();
+        protected List<int> m_dsCauHoi;
+        protected DuLieuVung m_duLieuVung;
+        protected ThietDat m_thietDat;
+        protected DapAn m_dapAn;
+        protected int cauHienTai = 1;
+        protected List<string> dsPhuongAnDaChon = new List<string>();
 
         public FormThi()
         {
@@ -40,7 +40,7 @@ namespace OnThiTracNghiem
                 LoadCauVaoThi();
             else KetThucThi();
         }
-
+        
         public string LayFilePathImage(int i)
         {
             string imageFilePath = Contents.dauFileImage;
@@ -54,7 +54,7 @@ namespace OnThiTracNghiem
             return imageFilePath;
         }
 
-        private void LoadImage(string imageFilePath)
+        protected void LoadImage(string imageFilePath)
         {
             pbxCauHoi.Image = Image.FromFile(imageFilePath);
             if (pbxCauHoi.Image.Width > pbxCauHoi.Width || pbxCauHoi.Image.Height > pbxCauHoi.Height)
@@ -90,7 +90,7 @@ namespace OnThiTracNghiem
             }
         }
 
-        private void ResetSangCauMoi()
+        protected void ResetSangCauMoi()
         {
             if (m_thietDat.BoolSoDapAnDuocChon == true)
             {
@@ -131,7 +131,7 @@ namespace OnThiTracNghiem
             return res;
         }
 
-        private void KetThucThi()
+        virtual protected void KetThucThi()
         {
             this.Close();
             List<string> cacCauSai;
@@ -141,7 +141,7 @@ namespace OnThiTracNghiem
             //MessageBox.Show("KetThuc THI");
         }
 
-        private void KetThucCau(string dapAn)
+        virtual protected void KetThucCau(string dapAn)
         {
             dsPhuongAnDaChon.Add(dapAn);
             ResetSangCauMoi();
@@ -150,46 +150,46 @@ namespace OnThiTracNghiem
             else KetThucThi();
         }
 
-        private Color GetColorCheckBoxChonPhuongAn(Color color)
+        protected Color GetColorCheckBoxChonPhuongAn(Color color)
         {
             if (color == Contents.colorCheckBoxChonDapAn[0])
                 return Contents.colorCheckBoxChonDapAn[1];
             else return Contents.colorCheckBoxChonDapAn[0];
         }
 
-        private void CheckBoxChonPhuongAnCheckedChanged(CheckBox chbx)
+        protected void CheckBoxChonPhuongAnCheckedChanged(CheckBox chbx)
         {
             if (m_thietDat.BoolSoDapAnDuocChon == false)
                 KetThucCau((chbx.Text[0] - 'A' + 1).ToString());
             else chbx.BackColor = GetColorCheckBoxChonPhuongAn(chbx.BackColor);
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        protected void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxChonPhuongAnCheckedChanged(sender as CheckBox);
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        protected void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxChonPhuongAnCheckedChanged(sender as CheckBox);
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        protected void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxChonPhuongAnCheckedChanged(sender as CheckBox);
         }
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        protected void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxChonPhuongAnCheckedChanged(sender as CheckBox);
         }
 
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        protected void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
             CheckBoxChonPhuongAnCheckedChanged(sender as CheckBox);
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        protected void btnOK_Click(object sender, EventArgs e)
         {
             string dapAn = "";
             if (checkBox1.Checked)

@@ -120,5 +120,14 @@ namespace OnThiTracNghiem
             DuLieu[cau] = 0;
             lblSoCauChuaVung.Text = SoCauChuaVung.ToString();
         }
+
+        public List<int> LayDScauChuaVung()
+        {
+            List<int> res = new List<int>();
+            for (int i = 0; i < soCau; i++)
+                if (duLieu[i] < soLanVung)
+                    res.Add(i);
+            return res;
+        }
     }
 }

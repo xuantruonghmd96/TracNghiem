@@ -39,17 +39,18 @@
             // 
             this.lblSoCauDung.AutoSize = true;
             this.lblSoCauDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoCauDung.Location = new System.Drawing.Point(95, 52);
+            this.lblSoCauDung.Location = new System.Drawing.Point(104, 52);
             this.lblSoCauDung.Name = "lblSoCauDung";
             this.lblSoCauDung.Size = new System.Drawing.Size(52, 16);
             this.lblSoCauDung.TabIndex = 0;
             this.lblSoCauDung.Text = "soCau";
+            this.lblSoCauDung.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 21);
+            this.label1.Location = new System.Drawing.Point(90, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 1;
@@ -98,7 +99,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormKetThucThi";
-            this.Text = "Hoàn thành Thi";
+            this.Text = "Nhìn anh tổng hợp kết quả!";
             this.ResumeLayout(false);
             this.PerformLayout();
 
