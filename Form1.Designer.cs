@@ -347,7 +347,7 @@ namespace OnThiTracNghiem
             this.btnModeDapAn1Classic.BackColor = System.Drawing.Color.Orange;
             this.btnModeDapAn1Classic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModeDapAn1Classic.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btnModeDapAn1Classic.Location = new System.Drawing.Point(231, 73);
+            this.btnModeDapAn1Classic.Location = new System.Drawing.Point(231, 86);
             this.btnModeDapAn1Classic.Margin = new System.Windows.Forms.Padding(4);
             this.btnModeDapAn1Classic.Name = "btnModeDapAn1Classic";
             this.btnModeDapAn1Classic.Size = new System.Drawing.Size(71, 28);
@@ -362,7 +362,7 @@ namespace OnThiTracNghiem
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 116);
+            this.label1.Location = new System.Drawing.Point(119, 129);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 16);
@@ -374,7 +374,7 @@ namespace OnThiTracNghiem
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(119, 79);
+            this.label2.Location = new System.Drawing.Point(119, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 16);
@@ -388,7 +388,7 @@ namespace OnThiTracNghiem
             this.btnModeDapAn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModeDapAn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModeDapAn2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModeDapAn2.Location = new System.Drawing.Point(40, 110);
+            this.btnModeDapAn2.Location = new System.Drawing.Point(40, 123);
             this.btnModeDapAn2.Margin = new System.Windows.Forms.Padding(4);
             this.btnModeDapAn2.Name = "btnModeDapAn2";
             this.btnModeDapAn2.Size = new System.Drawing.Size(71, 28);
@@ -404,7 +404,7 @@ namespace OnThiTracNghiem
             this.btnModeDapAn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModeDapAn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModeDapAn1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModeDapAn1.Location = new System.Drawing.Point(40, 73);
+            this.btnModeDapAn1.Location = new System.Drawing.Point(40, 86);
             this.btnModeDapAn1.Margin = new System.Windows.Forms.Padding(4);
             this.btnModeDapAn1.Name = "btnModeDapAn1";
             this.btnModeDapAn1.Size = new System.Drawing.Size(71, 28);
@@ -418,12 +418,12 @@ namespace OnThiTracNghiem
             this.lblSuaDapAn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSuaDapAn.AutoSize = true;
             this.lblSuaDapAn.BackColor = System.Drawing.Color.Transparent;
-            this.lblSuaDapAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuaDapAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuaDapAn.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblSuaDapAn.Location = new System.Drawing.Point(37, 48);
+            this.lblSuaDapAn.Location = new System.Drawing.Point(37, 45);
             this.lblSuaDapAn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSuaDapAn.Name = "lblSuaDapAn";
-            this.lblSuaDapAn.Size = new System.Drawing.Size(113, 16);
+            this.lblSuaDapAn.Size = new System.Drawing.Size(133, 20);
             this.lblSuaDapAn.TabIndex = 8;
             this.lblSuaDapAn.Text = "Chọn cách sửa:";
             // 
