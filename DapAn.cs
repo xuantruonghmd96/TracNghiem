@@ -89,6 +89,8 @@ namespace OnThiTracNghiem
 
         public static string ConvertSoToChu(string s)
         {
+            if (s == "")
+                return "0";
             string res = "";
             if (s[0] >= '0' && s[0] <= '9')
             {

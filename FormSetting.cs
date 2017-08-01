@@ -13,17 +13,24 @@ namespace OnThiTracNghiem
     public partial class FormSetting : Form
     {
         FormMain prevForm;
+        DuLieuVung duLieuVung;
+        ThietDat thietDat;
 
         public FormSetting()
         {
             InitializeComponent();
         }
 
-        public FormSetting(FormMain pf)
+        public FormSetting(FormMain pf, Label soCauChuaVung)
         {
             InitializeComponent();
 
             prevForm = pf;
+            duLieuVung = new DuLieuVung(numSoLanVung, soCauChuaVung);
+            duLieuVung.LoadFile();
+
+            thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn);
+            thietDat.LoadFile();
         }
 
         private void btnResetDuLieuVung_Click(object sender, EventArgs e)
@@ -125,6 +132,16 @@ namespace OnThiTracNghiem
                 chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
             ChonNhieuDapAn();
 
+        }
+
+        public DuLieuVung getDuLieuVung()
+        {
+            return duLieuVung;
+        }
+
+        public ThietDat getThietDat()
+        {
+            return thietDat;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace OnThiTracNghiem
         public DuLieuVung duLieuVung;
         public ThietDat thietDat;
         public DapAn dapAn;
+        FormSetting fs;
 
         public FormMain()
         {
@@ -33,10 +34,12 @@ namespace OnThiTracNghiem
             tctrlMainMenu.ItemSize = new Size(0, 1);
             tctrlMainMenu.SizeMode = TabSizeMode.Fixed;
             this.Text = "Giúp anh trả lời những câu hỏi?";
-            duLieuVung = new DuLieuVung(numSoLanVung, lblSoCauChuaVung);
+
+            fs = new FormSetting(this, lblSoCauChuaVung);
+            duLieuVung = fs.getDuLieuVung();
             duLieuVung.LoadFile();
 
-            thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn);
+            thietDat = fs.getThietDat();
             thietDat.LoadFile();
 
             dapAn = new DapAn();
@@ -401,8 +404,7 @@ namespace OnThiTracNghiem
 
         private void càiĐặtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FormSetting setting = new FormSetting(this);
-            setting.ShowDialog();
+            fs.ShowDialog();
         }
 
         private void thoátToolStripMenuItem1_Click(object sender, EventArgs e)
