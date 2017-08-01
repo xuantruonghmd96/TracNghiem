@@ -129,5 +129,13 @@ namespace OnThiTracNghiem
                     res.Add(i);
             return res;
         }
+
+        public void CapNhatSoCau(int tongSoCauHoi)
+        { 
+            for (int i = soCau; i < tongSoCauHoi; i++)
+                duLieu.Add(0);
+            soCau = tongSoCauHoi;
+            ThayDoiSoLanVung(soLanVung);
+        }
     }
 }

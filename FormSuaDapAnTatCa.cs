@@ -40,7 +40,7 @@ namespace OnThiTracNghiem
             }
             m_dapAn.CanChinhDapAn();
             m_dapAn.SaveFile();
-            MessageBox.Show("Sửa xong!");
+            MessageBox.Show("Sửa xong!", "Cám ơn em - Khắc Việt");
         }
     }
 }

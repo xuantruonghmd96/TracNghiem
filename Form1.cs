@@ -19,16 +19,16 @@ namespace OnThiTracNghiem
         public FormMain()
         {
             InitializeComponent();
-            if (Screen.PrimaryScreen.WorkingArea.Width == 1366)
-            {
-                this.Width = 400;
-                this.Height = 300;
-            }
-            else
-            {
-                this.Width = Screen.PrimaryScreen.WorkingArea.Width / 3;
-                this.Height = this.Width / 4 * 3;
-            }
+            //if (Screen.PrimaryScreen.WorkingArea.Width == 1366)
+            //{
+            //    this.Width = 400;
+            //    this.Height = 300;
+            //}
+            //else
+            //{
+            //    this.Width = Screen.PrimaryScreen.WorkingArea.Width / 3;
+            //    this.Height = this.Width / 4 * 3;
+            //}
 
             duLieuVung = new DuLieuVung(numSoLanVung, lblSoCauChuaVung);
             duLieuVung.LoadFile();
@@ -38,10 +38,17 @@ namespace OnThiTracNghiem
 
             dapAn = new DapAn();
             dapAn.LoadFile();
+            LoadnumSoCauThi();
+            numTongSoCauHoi.Value = dapAn.SoCau;
+            duLieuVung.CapNhatSoCau(dapAn.SoCau);
+        }
+
+        private void LoadnumSoCauThi()
+        {
+            this.numSoCauThi.Maximum = dapAn.SoCau;
             if (dapAn.SoCau < 40)
                 this.numSoCauThi.Value = dapAn.SoCau;
             else this.numSoCauThi.Value = 40;
-            this.numSoCauThi.Maximum = dapAn.SoCau;
         }
 
         private void ChonNhieuDapAn()
@@ -89,6 +96,19 @@ namespace OnThiTracNghiem
                 duLieuVung.ThayDoiSoLanVung((int)numSoLanVung.Value);
             if (thietDat.CoThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked))
                 thietDat.ThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked);
+            if (dapAn.SoCau != numTongSoCauHoi.Value)
+            {
+                if (dapAn.SoCau < numTongSoCauHoi.Value)
+                {
+                    MessageBox.Show("Hãy nhớ nhập thêm đáp án các câu mới", "Cho anh xin những ân cần", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    for (int i = dapAn.SoCau; i < numTongSoCauHoi.Value; i++)
+                        dapAn.DapAns.Add("");
+                }
+                dapAn.SoCau = (int)numTongSoCauHoi.Value;
+                LoadnumSoCauThi();
+                dapAn.SaveFile();
+                duLieuVung.CapNhatSoCau(dapAn.SoCau);
+            }
         }
 
         private void btnModeDapAn1_Click(object sender, EventArgs e)
@@ -219,6 +239,28 @@ namespace OnThiTracNghiem
             DScauHoi.Add(cauCanSua);
 
             FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void btnResetDuLieuVung_Click(object sender, EventArgs e)
+        {
+            duLieuVung.DuLieu = Enumerable.Repeat(0, dapAn.SoCau).ToList();
+            duLieuVung.SoCauChuaVung = dapAn.SoCau;
+            duLieuVung.SaveFile();
+            MessageBox.Show("Đã làm mới dữ liệu vững về 0", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnModeDapAn3_Click(object sender, EventArgs e)
+        {
+            int cauBatDau;
+            cauBatDau = PromptNumericUpDown.ShowDialog("Bắt đầu từ câu: ", "Cho anh sửa chữa những lỗi lầm!", 1, dapAn.SoCau);
+            if (cauBatDau == -1)
+                return;
+
+            List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            DScauHoi.RemoveRange(0, cauBatDau - 1);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
