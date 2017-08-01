@@ -29,7 +29,10 @@ namespace OnThiTracNghiem
             //    this.Width = Screen.PrimaryScreen.WorkingArea.Width / 3;
             //    this.Height = this.Width / 4 * 3;
             //}
-
+            tctrlMainMenu.Appearance = TabAppearance.FlatButtons;
+            tctrlMainMenu.ItemSize = new Size(0, 1);
+            tctrlMainMenu.SizeMode = TabSizeMode.Fixed;
+            this.Text = "Giúp anh trả lời những câu hỏi?";
             duLieuVung = new DuLieuVung(numSoLanVung, lblSoCauChuaVung);
             duLieuVung.LoadFile();
 
@@ -43,7 +46,7 @@ namespace OnThiTracNghiem
             duLieuVung.CapNhatSoCau(dapAn.SoCau);
         }
 
-        private void LoadnumSoCauThi()
+        public void LoadnumSoCauThi()
         {
             this.numSoCauThi.Maximum = dapAn.SoCau;
             if (dapAn.SoCau < 40)
@@ -263,6 +266,148 @@ namespace OnThiTracNghiem
             FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void ttpMode1DapAnClassic_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tctrlMainMenu.SelectedTab = tabPage1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tctrlMainMenu.SelectedTab = tabPage2;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tctrlMainMenu.SelectedTab = tabPage5;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            tctrlMainMenu.SelectedTab = tabPage2;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tctrlMainMenu.SelectedTab = tabPage1;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tctrlMainMenu.SelectedTab = tabPage5;
+
+        }
+
+        private void tấtCảĐápÁnToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+        }
+
+        private void đápÁnMộtCâuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int cauCanSua;
+            cauCanSua = PromptNumericUpDown.ShowDialog("Câu cần sửa: ", "Cho anh sửa chữa những lỗi lầm!", 1, dapAn.SoCau);
+            if (cauCanSua == -1)
+                return;
+
+            List<int> DScauHoi = new List<int>();
+            DScauHoi.Add(cauCanSua);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+
+        }
+
+        private void bắtĐầuTừCâuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int cauBatDau;
+            cauBatDau = PromptNumericUpDown.ShowDialog("Bắt đầu từ câu: ", "Cho anh sửa chữa những lỗi lầm!", 1, dapAn.SoCau);
+            if (cauBatDau == -1)
+                return;
+
+            List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
+            DScauHoi.RemoveRange(0, cauBatDau - 1);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            frm.ShowDialog();
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
+
+        }
+
+        private void classicToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            List<string> lines = new List<string>();
+            string s;
+            bool broken = false;
+            for (int i = 0; i < dapAn.SoCau; i++)
+            {
+                s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "Cho anh sửa chữa những lỗi lầm!");
+                if (s == "-1")
+                {
+                    broken = true;
+                    break;
+                }
+                while (KiemTraDapAnHopLe(s) == false)
+                {
+                    MessageBox.Show("Mời nhập lại", "Sai định dạng đáp án", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    s = Prompt.ShowDialog("Đáp án câu " + (i + 1).ToString(), "Cho anh sửa chữa những lỗi lầm!");
+                    if (s == "-1")
+                    {
+                        broken = true;
+                        break;
+                    }
+                }
+                if (s == "-1")
+                {
+                    broken = true;
+                    break;
+                }
+                lines.Add(s);
+            }
+            if (broken)
+                return;
+            for (int i = 0; i < dapAn.SoCau; i++)
+                if (dapAn.DapAns[i] != lines[i])
+                    duLieuVung.ResetCau(i);
+            duLieuVung.SaveFile();
+            dapAn.DapAns = lines;
+            dapAn.CanChinhDapAn();
+            dapAn.SaveFile();
+        }
+
+        private void bảnQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Trường ","Trường đẹp trai");
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numSoLanVung_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void càiĐặtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormSetting setting = new FormSetting(this, duLieuVung, dapAn, thietDat);
+            setting.ShowDialog();
+        }
+
+        private void thoátToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

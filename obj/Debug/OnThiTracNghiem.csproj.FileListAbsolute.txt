@@ -19,3 +19,16 @@ D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormThi.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormKetThucThi.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormThongBaoDungSai.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.csprojResolveAssemblyReference.cache
+C:\Users\chita\Desktop\TracNghiem\bin\Debug\OnThiTracNghiem.exe.config
+C:\Users\chita\Desktop\TracNghiem\bin\Debug\OnThiTracNghiem.exe
+C:\Users\chita\Desktop\TracNghiem\bin\Debug\OnThiTracNghiem.pdb
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.csprojResolveAssemblyReference.cache
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.FormMain.resources
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.FormKetThucThi.resources
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.FormThi.resources
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.FormThongBaoDungSai.resources
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.Properties.Resources.resources
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.csproj.GenerateResource.Cache
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.exe
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.pdb
+C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.FormSetting.resources
