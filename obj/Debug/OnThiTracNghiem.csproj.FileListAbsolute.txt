@@ -32,3 +32,4 @@ C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.csproj.GenerateResou
 C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.exe
 C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.pdb
 C:\Users\chita\Desktop\TracNghiem\obj\Debug\OnThiTracNghiem.FormSetting.resources
+D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormSetting.resources
