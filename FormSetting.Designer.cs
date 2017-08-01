@@ -154,6 +154,7 @@
             this.btnMotDapAn.TabIndex = 21;
             this.btnMotDapAn.Text = "Một đáp án";
             this.btnMotDapAn.UseVisualStyleBackColor = false;
+            this.btnMotDapAn.Click += new System.EventHandler(this.btnMotDapAn_Click_1);
             // 
             // btnNhieuDapAn
             // 
@@ -169,6 +170,7 @@
             this.btnNhieuDapAn.TabIndex = 22;
             this.btnNhieuDapAn.Text = "Nhiều đáp án";
             this.btnNhieuDapAn.UseVisualStyleBackColor = false;
+            this.btnNhieuDapAn.Click += new System.EventHandler(this.btnNhieuDapAn_Click_1);
             // 
             // numSoPhuongAn
             // 
@@ -230,6 +232,7 @@
             this.chbxSoDapAnDuocChon.Size = new System.Drawing.Size(74, 32);
             this.chbxSoDapAnDuocChon.TabIndex = 20;
             this.chbxSoDapAnDuocChon.UseVisualStyleBackColor = false;
+            this.chbxSoDapAnDuocChon.CheckedChanged += new System.EventHandler(this.chbxSoDapAnDuocChon_CheckedChanged_1);
             // 
             // btnResetDuLieuVung
             // 

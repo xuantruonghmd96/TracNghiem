@@ -12,9 +12,9 @@ namespace OnThiTracNghiem
 {
     public partial class FormMain : Form
     {
-        DuLieuVung duLieuVung;
-        ThietDat thietDat;
-        DapAn dapAn;
+        public DuLieuVung duLieuVung;
+        public ThietDat thietDat;
+        public DapAn dapAn;
 
         public FormMain()
         {
@@ -401,7 +401,7 @@ namespace OnThiTracNghiem
 
         private void càiĐặtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FormSetting setting = new FormSetting(this, duLieuVung, dapAn, thietDat);
+            FormSetting setting = new FormSetting(this);
             setting.ShowDialog();
         }
 

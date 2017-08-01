@@ -12,9 +12,6 @@ namespace OnThiTracNghiem
 {
     public partial class FormSetting : Form
     {
-        DuLieuVung duLieuVung;
-        DapAn dapAn;
-        ThietDat thietDat;
         FormMain prevForm;
 
         public FormSetting()
@@ -22,14 +19,11 @@ namespace OnThiTracNghiem
             InitializeComponent();
         }
 
-        public FormSetting(FormMain pf,DuLieuVung dlv, DapAn da, ThietDat td)
+        public FormSetting(FormMain pf)
         {
             InitializeComponent();
 
             prevForm = pf;
-            duLieuVung = dlv;
-            dapAn = da;
-            thietDat = td;
         }
 
         private void btnResetDuLieuVung_Click(object sender, EventArgs e)
@@ -54,9 +48,9 @@ namespace OnThiTracNghiem
 
         private void btnResetDuLieuVung_Click_1(object sender, EventArgs e)
         {
-            duLieuVung.DuLieu = Enumerable.Repeat(0, dapAn.SoCau).ToList();
-            duLieuVung.SoCauChuaVung = dapAn.SoCau;
-            duLieuVung.SaveFile();
+            prevForm.duLieuVung.DuLieu = Enumerable.Repeat(0, prevForm.dapAn.SoCau).ToList();
+            prevForm.duLieuVung.SoCauChuaVung = prevForm.dapAn.SoCau;
+            prevForm.duLieuVung.SaveFile();
             MessageBox.Show("Đã làm mới dữ liệu vững về 0", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
@@ -67,22 +61,22 @@ namespace OnThiTracNghiem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (duLieuVung.CoThayDoiSoLanVung((int)numSoLanVung.Value))
-                duLieuVung.ThayDoiSoLanVung((int)numSoLanVung.Value);
-            if (thietDat.CoThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked))
-                thietDat.ThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked);
-            if (dapAn.SoCau != numTongSoCauHoi.Value)
+            if (prevForm.duLieuVung.CoThayDoiSoLanVung((int)numSoLanVung.Value))
+                prevForm.duLieuVung.ThayDoiSoLanVung((int)numSoLanVung.Value);
+            if (prevForm.thietDat.CoThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked))
+                prevForm.thietDat.ThayDoiThietDat((int)numSoPhuongAn.Value, chbxSoDapAnDuocChon.Checked);
+            if (prevForm.dapAn.SoCau != numTongSoCauHoi.Value)
             {
-                if (dapAn.SoCau < numTongSoCauHoi.Value)
+                if (prevForm.dapAn.SoCau < numTongSoCauHoi.Value)
                 {
                     MessageBox.Show("Hãy nhớ nhập thêm đáp án các câu mới", "Cho anh xin những ân cần", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    for (int i = dapAn.SoCau; i < numTongSoCauHoi.Value; i++)
-                        dapAn.DapAns.Add("");
+                    for (int i = prevForm.dapAn.SoCau; i < numTongSoCauHoi.Value; i++)
+                        prevForm.dapAn.DapAns.Add("");
                 }
-                dapAn.SoCau = (int)numTongSoCauHoi.Value;
+                prevForm.dapAn.SoCau = (int)numTongSoCauHoi.Value;
                 prevForm.LoadnumSoCauThi();
-                dapAn.SaveFile();
-                duLieuVung.CapNhatSoCau(dapAn.SoCau);
+                prevForm.dapAn.SaveFile();
+                prevForm.duLieuVung.CapNhatSoCau(prevForm.dapAn.SoCau);
             }
             this.Close();
         }
@@ -90,6 +84,47 @@ namespace OnThiTracNghiem
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ChonNhieuDapAn()
+        {
+            chbxSoDapAnDuocChon.Checked = true;
+            btnMotDapAn.BackColor = Contents.colorOff;
+            btnNhieuDapAn.BackColor = Contents.colorOn;
+        }
+
+        private void ChonMotDapAn()
+        {
+            chbxSoDapAnDuocChon.Checked = false;
+            btnMotDapAn.BackColor = Contents.colorOn;
+            btnNhieuDapAn.BackColor = Contents.colorOff;
+        }
+
+        private void chbxSoDapAnDuocChon_CheckedChanged_1(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Hand.Play();
+            CheckBox checkBox = sender as CheckBox;
+            chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipY);
+            if (checkBox.Checked)   //Nhieu dap an
+                ChonNhieuDapAn();
+            else
+                ChonMotDapAn();
+        }
+
+        private void btnMotDapAn_Click_1(object sender, EventArgs e)
+        {
+            if (chbxSoDapAnDuocChon.Checked == true)
+                chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
+            ChonMotDapAn();
+
+        }
+
+        private void btnNhieuDapAn_Click_1(object sender, EventArgs e)
+        {
+            if (chbxSoDapAnDuocChon.Checked == false)
+                chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
+            ChonNhieuDapAn();
+
         }
     }
 }
