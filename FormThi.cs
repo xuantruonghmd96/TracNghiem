@@ -123,7 +123,8 @@ namespace OnThiTracNghiem
                         s = "Câu  ";
                     else s = "Câu ";
                     s += (m_dsCauHoi[i]).ToString();
-                    s += " - " + m_dapAn.DapAns[m_dsCauHoi[i] - 1] + " - " + dsPhuongAnDaChon[i];
+
+                    s += " - " + DapAn.ConvertSoToChu(m_dapAn.DapAns[m_dsCauHoi[i] - 1]) + " - " + DapAn.ConvertSoToChu(dsPhuongAnDaChon[i]);
                     cacCauSai.Add(s);
                 }
             }

@@ -85,8 +85,22 @@ namespace OnThiTracNghiem
                 Array.Sort(temp);
                 m_dapAn[i] = new string(temp);
             }
+        }
 
-            
+        public static string ConvertSoToChu(string s)
+        {
+            string res = "";
+            if (s[0] >= '0' && s[0] <= '9')
+            {
+                char temp;
+                for (int i = 0; i < s.Length; i++)
+                {
+                    temp = (char)(s[i] + 'A' - '1');
+                    res += temp;
+                }
+            }
+            else res = s;
+            return res;
         }
     }
 }

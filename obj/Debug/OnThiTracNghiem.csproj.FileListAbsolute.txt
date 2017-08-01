@@ -18,3 +18,4 @@ D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.csproj.GenerateResource.Cach
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormThi.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormKetThucThi.resources
 D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormThongBaoDungSai.resources
+D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.csprojResolveAssemblyReference.cache

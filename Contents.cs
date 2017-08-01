@@ -12,9 +12,9 @@ namespace OnThiTracNghiem
     {
         public static Color colorOn = System.Drawing.ColorTranslator.FromHtml("#E87E04");
         public static Color colorOff = System.Drawing.ColorTranslator.FromHtml("#E9D460");
-        public static string fileNameDapAn = @"Sources/DapAn.txt";
-        public static string fileNameDuLieuVung = @"Sources/DuLieuVung.txt";
-        public static string fileNameThietDat = @"Sources/ThietDat.txt";
+        public static string fileNameDapAn = @"Sources/ans.ini";
+        public static string fileNameDuLieuVung = @"Sources/dat.ini";
+        public static string fileNameThietDat = @"Sources/set.ini";
         public static Color[] colorCheckBoxChonDapAn = { SystemColors.ActiveCaption, Color.FromArgb(249, 105, 14) };
         public static int[] locationYPanelChonDapAn = { 30, 240, 170, 100, 30 };
         public static string dauFileImage = @"Cau hoi/Cau ";

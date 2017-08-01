@@ -35,7 +35,7 @@ namespace OnThiTracNghiem
         protected void InitializeFormSai(string dapAn)
         {
             label1.Text = "Sai!";
-            label2.Text = "Đáp án là " + dapAn;
+            label2.Text = "Đáp án là " + DapAn.ConvertSoToChu(dapAn);
             this.BackColor = Color.Peru;
             CanChinhControls();
         }
