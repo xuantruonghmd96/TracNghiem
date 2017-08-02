@@ -389,7 +389,7 @@ namespace OnThiTracNghiem
 
         private void bảnQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Trường tạc úp" + Environment.NewLine + "Tài u i u ích", "Giúp anh trả lời những câu hỏi!");
+            MessageBox.Show("Trường tạc úp" + Environment.NewLine + "Tài u i u ích" + Environment.NewLine + "Vĩnh chỉ biết câm nín nghe tiếng Trường khóc", "Giúp anh trả lời những câu hỏi!");
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
