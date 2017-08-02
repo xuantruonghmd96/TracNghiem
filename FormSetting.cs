@@ -15,6 +15,7 @@ namespace OnThiTracNghiem
         FormMain prevForm;
         DuLieuVung duLieuVung;
         ThietDat thietDat;
+        DapAn dapAn;
 
         public FormSetting()
         {
@@ -31,6 +32,20 @@ namespace OnThiTracNghiem
 
             thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn);
             thietDat.LoadFile();
+
+            dapAn = new DapAn();
+            dapAn.LoadFile();
+            numTongSoCauHoi.Value = dapAn.SoCau;
+            duLieuVung.CapNhatSoCau(dapAn.SoCau);
+        }
+
+        public void SetTextOfControls()
+        {
+            duLieuVung.LoadFile();
+            thietDat.LoadFile();
+            dapAn.LoadFile();
+            numTongSoCauHoi.Value = dapAn.SoCau;
+            duLieuVung.CapNhatSoCau(dapAn.SoCau);
         }
 
         private void btnResetDuLieuVung_Click(object sender, EventArgs e)
@@ -58,7 +73,7 @@ namespace OnThiTracNghiem
             prevForm.duLieuVung.DuLieu = Enumerable.Repeat(0, prevForm.dapAn.SoCau).ToList();
             prevForm.duLieuVung.SoCauChuaVung = prevForm.dapAn.SoCau;
             prevForm.duLieuVung.SaveFile();
-            MessageBox.Show("Đã làm mới dữ liệu vững về 0", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show("Đã làm mới dữ liệu vững về 0.", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void lblSoLanVung_Click(object sender, EventArgs e)
@@ -76,7 +91,7 @@ namespace OnThiTracNghiem
             {
                 if (prevForm.dapAn.SoCau < numTongSoCauHoi.Value)
                 {
-                    MessageBox.Show("Hãy nhớ nhập thêm đáp án các câu mới", "Cho anh xin những ân cần", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Hãy nhớ nhập thêm đáp án các câu mới!", "Cho anh xin những ân cần!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     for (int i = prevForm.dapAn.SoCau; i < numTongSoCauHoi.Value; i++)
                         prevForm.dapAn.DapAns.Add("");
                 }
@@ -123,7 +138,6 @@ namespace OnThiTracNghiem
             if (chbxSoDapAnDuocChon.Checked == true)
                 chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
             ChonMotDapAn();
-
         }
 
         private void btnNhieuDapAn_Click_1(object sender, EventArgs e)
@@ -131,7 +145,6 @@ namespace OnThiTracNghiem
             if (chbxSoDapAnDuocChon.Checked == false)
                 chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
             ChonNhieuDapAn();
-
         }
 
         public DuLieuVung getDuLieuVung()

@@ -33,7 +33,7 @@ namespace OnThiTracNghiem
             tctrlMainMenu.Appearance = TabAppearance.FlatButtons;
             tctrlMainMenu.ItemSize = new Size(0, 1);
             tctrlMainMenu.SizeMode = TabSizeMode.Fixed;
-            this.Text = "Giúp anh trả lời những câu hỏi?";
+            this.Text = "Giúp anh trả lời những câu hỏi!";
 
             fs = new FormSetting(this, lblSoCauChuaVung);
             duLieuVung = fs.getDuLieuVung();
@@ -389,7 +389,7 @@ namespace OnThiTracNghiem
 
         private void bảnQuyềnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Trường ","Trường đẹp trai");
+            MessageBox.Show("Trường tạc úp" + Environment.NewLine + "Tài u i u ích", "Giúp anh trả lời những câu hỏi!");
         }
 
         private void tabPage4_Click(object sender, EventArgs e)
@@ -404,6 +404,7 @@ namespace OnThiTracNghiem
 
         private void càiĐặtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            fs.SetTextOfControls();
             fs.ShowDialog();
         }
 

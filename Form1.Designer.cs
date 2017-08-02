@@ -137,7 +137,7 @@ namespace OnThiTracNghiem
             // 
             this.button2.BackColor = System.Drawing.Color.Orange;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(210, 72);
             this.button2.Name = "button2";
@@ -151,7 +151,7 @@ namespace OnThiTracNghiem
             // 
             this.button1.BackColor = System.Drawing.Color.Orange;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(19, 72);
             this.button1.Name = "button1";
@@ -874,7 +874,7 @@ namespace OnThiTracNghiem
             this.đápÁnMộtCâuToolStripMenuItem,
             this.bắtĐầuTừCâuToolStripMenuItem});
             this.càiĐặtToolStripMenuItem.Name = "càiĐặtToolStripMenuItem";
-            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.càiĐặtToolStripMenuItem.Text = "Sửa đáp án";
             // 
             // tấtCảĐápÁnToolStripMenuItem1
@@ -901,14 +901,14 @@ namespace OnThiTracNghiem
             // càiĐặtToolStripMenuItem1
             // 
             this.càiĐặtToolStripMenuItem1.Name = "càiĐặtToolStripMenuItem1";
-            this.càiĐặtToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.càiĐặtToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.càiĐặtToolStripMenuItem1.Text = "Cài đặt";
             this.càiĐặtToolStripMenuItem1.Click += new System.EventHandler(this.càiĐặtToolStripMenuItem1_Click);
             // 
             // bảnQuyềnToolStripMenuItem
             // 
             this.bảnQuyềnToolStripMenuItem.Name = "bảnQuyềnToolStripMenuItem";
-            this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bảnQuyềnToolStripMenuItem.Text = "Bản quyền";
             this.bảnQuyềnToolStripMenuItem.Click += new System.EventHandler(this.bảnQuyềnToolStripMenuItem_Click);
             // 
