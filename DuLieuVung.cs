@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnThiTracNghiem
@@ -80,26 +78,23 @@ namespace OnThiTracNghiem
 
         public void LoadFile()
         {
-            if (!File.Exists(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung))
+            if (!File.Exists(Contents.sourcesPath + subjectFolder + @"/" + Contents.studyDataFilePath))
                 Contents.TaoMacDinhDuLieuSources(subjectFolder);
 
-            List<string> lines = File.ReadAllLines(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung).ToList();
+            List<string> lines = File.ReadAllLines(Contents.sourcesPath + subjectFolder + @"/" + Contents.studyDataFilePath).ToList();
             List<string> a = lines[0].Split(' ').ToList();
             Int32.TryParse(a[0], out soCau);
             Int32.TryParse(a[1], out soLanVung);
             Int32.TryParse(a[2], out soCauChuaVung);
 
-            lblSoCauChuaVung.Text = SoCauChuaVung.ToString();
-            numSoLanVung.Value = SoLanVung;
-
             DuLieu = new List<int>();
             for (int i=1; i<lines.Count(); i++)
                 DuLieu.Add(Int32.Parse(lines[i]));
         }
-
+        
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.studyDataFilePath);
             file.WriteLine("{0} {1} {2}", SoCau, SoLanVung, SoCauChuaVung);
             for (int i=0; i<SoCau; i++)
                 file.WriteLine(DuLieu[i]);
@@ -109,7 +104,7 @@ namespace OnThiTracNghiem
 
         public static void SaveFileMacDinh(int soCauMacDinh, string subjectFolder)
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.studyDataFilePath);
             file.WriteLine("{0} {1} {2}", soCauMacDinh, 0, 0);
             for (int i = 0; i < soCauMacDinh; i++)
                 file.WriteLine(0);

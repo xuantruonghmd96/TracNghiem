@@ -631,7 +631,6 @@ namespace OnThiTracNghiem
             this.tabPage4.Size = new System.Drawing.Size(392, 247);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Thiết đặt";
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // btnResetDuLieuVung
             // 
@@ -706,7 +705,6 @@ namespace OnThiTracNghiem
             this.numSoLanVung.TabIndex = 1;
             this.ttpSoLanVung.SetToolTip(this.numSoLanVung, "Các câu hỏi có số lần trả lời đúng liên tiếp\r\nquá con số này sẽ được xác định là " +
         "đã vững.");
-            this.numSoLanVung.ValueChanged += new System.EventHandler(this.numSoLanVung_ValueChanged);
             // 
             // lblSoLanVung
             // 
@@ -859,12 +857,14 @@ namespace OnThiTracNghiem
             this.mởĐềThiToolStripMenuItem.Name = "mởĐềThiToolStripMenuItem";
             this.mởĐềThiToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.mởĐềThiToolStripMenuItem.Text = "Mở bộ câu hỏi";
+            this.mởĐềThiToolStripMenuItem.Click += new System.EventHandler(this.mởĐềThiToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.thoátToolStripMenuItem.Text = "Lưu bộ câu hỏi";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem1
             // 
@@ -890,7 +890,7 @@ namespace OnThiTracNghiem
             this.đápÁnMộtCâuToolStripMenuItem,
             this.bắtĐầuTừCâuToolStripMenuItem});
             this.càiĐặtToolStripMenuItem.Name = "càiĐặtToolStripMenuItem";
-            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.càiĐặtToolStripMenuItem.Text = "Sửa đáp án";
             // 
             // tấtCảĐápÁnToolStripMenuItem1
@@ -917,14 +917,14 @@ namespace OnThiTracNghiem
             // càiĐặtToolStripMenuItem1
             // 
             this.càiĐặtToolStripMenuItem1.Name = "càiĐặtToolStripMenuItem1";
-            this.càiĐặtToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.càiĐặtToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.càiĐặtToolStripMenuItem1.Text = "Cài đặt";
             this.càiĐặtToolStripMenuItem1.Click += new System.EventHandler(this.càiĐặtToolStripMenuItem1_Click);
             // 
             // bảnQuyềnToolStripMenuItem
             // 
             this.bảnQuyềnToolStripMenuItem.Name = "bảnQuyềnToolStripMenuItem";
-            this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bảnQuyềnToolStripMenuItem.Text = "Bản quyền";
             this.bảnQuyềnToolStripMenuItem.Click += new System.EventHandler(this.bảnQuyềnToolStripMenuItem_Click);
             // 

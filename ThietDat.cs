@@ -70,10 +70,10 @@ namespace OnThiTracNghiem
 
         public void LoadFile()
         {
-            if (!File.Exists(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung))
+            if (!File.Exists(Contents.sourcesPath + subjectFolder + @"/" + Contents.studyDataFilePath))
                 Contents.TaoMacDinhDuLieuSources(subjectFolder);
 
-            List<string> lines = File.ReadAllLines(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameThietDat).ToList();
+            List<string> lines = File.ReadAllLines(Contents.sourcesPath + subjectFolder + @"/" + Contents.settingFilePath).ToList();
 
             m_soPhuongAn.Value = Int32.Parse(lines[0]);
             if (lines[1] == "False")
@@ -99,7 +99,7 @@ namespace OnThiTracNghiem
 
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameThietDat);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.settingFilePath);
             file.WriteLine(m_soPhuongAn.Value);
             file.WriteLine(m_soDapAnDuocChon.Checked);
             file.WriteLine(m_duoiFileImage);
@@ -112,7 +112,7 @@ namespace OnThiTracNghiem
 
         public static void SaveFileMacDinh(string subjectFolder)
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameThietDat);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.settingFilePath);
             file.WriteLine(4);
             file.WriteLine(bool.FalseString);
             file.WriteLine(".bmp");

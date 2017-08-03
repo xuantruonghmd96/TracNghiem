@@ -41,8 +41,9 @@ namespace OnThiTracNghiem
 
         public void LoadFile()
         {
-            List<string> lines = File.ReadAllLines(Contents.SourcesPath + Contents.fileNameSubjects).ToList();
+            List<string> lines = File.ReadAllLines(Contents.sourcesPath + Contents.subjectsFilePath).ToList();
             _subjects = new List<Subject>();
+            _subjects.Clear();
             for (int i = 0; i < lines.Count() - 1; i += 2)
                 _subjects.Add(new Subject(lines[i], lines[i + 1]));
             _subSelected = int.Parse(lines[lines.Count - 1]);
@@ -50,7 +51,7 @@ namespace OnThiTracNghiem
 
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + Contents.fileNameSubjects);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + Contents.subjectsFilePath);
             for (int i = 0; i < _subjects.Count; i++)
             {
                 file.WriteLine(_subjects[i].Name);
@@ -66,6 +67,7 @@ namespace OnThiTracNghiem
             //cbx.DataBindings.Add(new Binding("DataSource", _subjects, "Name"));
 
             cbx.DisplayMember = "Name";
+            cbx.Items.Clear();
             for (int i = 0; i < _subjects.Count; i++)
                 cbx.Items.Add(_subjects[i]);
             cbx.SelectedIndex = _subSelected;

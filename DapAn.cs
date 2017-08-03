@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace OnThiTracNghiem
@@ -46,10 +44,10 @@ namespace OnThiTracNghiem
 
         public void LoadFile()
         {
-            if (!File.Exists(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung))
+            if (!File.Exists(Contents.sourcesPath + subjectFolder + @"/" + Contents.studyDataFilePath))
                 Contents.TaoMacDinhDuLieuSources(subjectFolder);
 
-            List<string> lines = File.ReadAllLines(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDapAn).ToList();
+            List<string> lines = File.ReadAllLines(Contents.sourcesPath + subjectFolder + @"/" + Contents.answerFilePath).ToList();
             SoCau = Int32.Parse(lines[0]);
 
             m_dapAn = new List<string>();
@@ -59,7 +57,7 @@ namespace OnThiTracNghiem
 
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDapAn);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.answerFilePath);
             file.WriteLine(SoCau);
             for (int i = 0; i < SoCau; i++)
                 file.WriteLine(DapAns[i]);
@@ -69,7 +67,7 @@ namespace OnThiTracNghiem
 
         public static void SaveFileMacDinh(string subjectFolder, int soCauMacDinh)
         {
-            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDapAn);
+            StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.answerFilePath);
             file.WriteLine(soCauMacDinh);
             for (int i = 0; i < soCauMacDinh; i++)
                 file.WriteLine("");

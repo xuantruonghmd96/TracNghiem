@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnThiTracNghiem
@@ -46,7 +41,7 @@ namespace OnThiTracNghiem
         
         public string LayFilePathImage(int i)
         {
-            string imageFilePath = Contents.SourcesPath + _subjectFolder + @"/" + Contents.dauFileImage;
+            string imageFilePath = Contents.sourcesPath + _subjectFolder + @"/" + Contents.dauFileImage;
             if (i < 10)
                 imageFilePath += "00";
             else if (i < 100)

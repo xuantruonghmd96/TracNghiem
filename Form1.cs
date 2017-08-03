@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Ionic.Zip;
 
 namespace OnThiTracNghiem
 {
@@ -401,16 +400,6 @@ namespace OnThiTracNghiem
             MessageBox.Show("Trường tạc úp" + Environment.NewLine + "Tài u i u ích" + Environment.NewLine + "Vĩnh chỉ biết câm nín nghe tiếng Trường khóc", "Giúp anh trả lời những câu hỏi!");
         }
 
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numSoLanVung_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void càiĐặtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fs.SetTextOfControls();
@@ -438,6 +427,70 @@ namespace OnThiTracNghiem
             LoadnumSoCauThi();
             numTongSoCauHoi.Value = dapAn.SoCau;
             duLieuVung.CapNhatSoCau(dapAn.SoCau);
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Subject sub = subsManager.Subjects[subsManager.SubSelected];
+            SaveFileDialog savefile = new SaveFileDialog();
+            // set a default file name
+            savefile.FileName = sub.FolderName + ".dat";
+            // set filters - this can be done in properties as well
+            savefile.Filter = "Data files (*.dat)|*.dat|All files (*.*)|*.*";
+            
+            if (savefile.ShowDialog() == DialogResult.OK)
+            {
+                string startPath = Contents.sourcesPath + sub.FolderName + @"/";
+                StreamWriter sw = new StreamWriter(Contents.sourcesPath + "import.ini");
+                sw.Write(sub.FolderName + "$" + sub.Name);
+                sw.Close();
+                ZipFile zip = new ZipFile(savefile.FileName);
+                zip.AddDirectory(startPath);
+                zip.AddFile(Contents.sourcesPath + "import.ini");
+                zip.Save();
+            }
+        }
+
+        private void mởĐềThiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openfile = new OpenFileDialog();
+            // set a default file name
+            openfile.FileName = "subject.dat";
+            // set filters - this can be done in properties as well
+            openfile.Filter = "Data files (*.dat)|*.dat|All files (*.*)|*.*";
+
+            if (openfile.ShowDialog() == DialogResult.OK)
+            {
+                string baseFileName = Path.GetFileNameWithoutExtension(openfile.FileName);
+                string tempFolder = Contents.sourcesPath + baseFileName + @"/";
+                ZipFile zip = new ZipFile(openfile.FileName);
+                zip.ExtractAll(tempFolder);
+                StreamReader sr = new StreamReader(tempFolder + "data/import.ini");
+                String dat = sr.ReadToEnd();
+                String []f = dat.Split('$');
+                String folderName = f[0];
+                String name = f[1];
+                sr.Close();
+
+                if (baseFileName != folderName)
+                {
+                    Directory.Move(tempFolder, Contents.sourcesPath + folderName + @"/");
+                    Directory.Delete(tempFolder);
+                }
+                File.Delete(Contents.sourcesPath + folderName + "/data/import.ini");
+                Directory.Delete(Contents.sourcesPath + folderName + "/data/");
+
+                StreamReader sr2 = new StreamReader(Contents.sourcesPath + "sub.ini");
+                string blah = sr2.ReadToEnd();
+                sr2.Close();
+                StreamWriter sw = new StreamWriter(Contents.sourcesPath + "sub.ini");
+                sw.WriteLine(name);
+                sw.WriteLine(folderName);
+                sw.Write(blah);
+                sw.Close();
+                subsManager.LoadFile();
+                subsManager.AddBindingDataSubjectsName(cbxListSubjects);
+            }
         }
     }
 }

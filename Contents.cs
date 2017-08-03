@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnThiTracNghiem
 {
     public class Contents
     {
-        public static string SourcesPath = @"Sources/";
-        public static string fileNameDapAn = @"ans.ini";
-        public static string fileNameDuLieuVung = @"dat.ini";
-        public static string fileNameThietDat = @"set.ini";
-        public static string fileNameSubjects = @"sub.ini";
-        public static Color colorOn = System.Drawing.ColorTranslator.FromHtml("#E87E04");
-        public static Color colorOff = System.Drawing.ColorTranslator.FromHtml("#E9D460");
+        public static string sourcesPath = @"data/";
+        public static string answerFilePath = @"ans.ini";
+        public static string studyDataFilePath = @"dat.ini";
+        public static string settingFilePath = @"set.ini";
+        public static string subjectsFilePath = @"sub.ini";
+        public static Color colorOn = ColorTranslator.FromHtml("#E87E04");
+        public static Color colorOff = ColorTranslator.FromHtml("#E9D460");
         public static Color[] colorCheckBoxChonDapAn = { SystemColors.ActiveCaption, Color.FromArgb(249, 105, 14) };
         public static int[] locationYPanelChonDapAn = { 30, 240, 170, 100, 30 };
-        public static string dauFileImage = @"Cau hoi/Cau ";
+        public static string dauFileImage = @"question/Cau ";
         public static string duoiFileImage = @".bmp";
         public static int soCauMacDinh = 1;
 
@@ -88,7 +83,7 @@ namespace OnThiTracNghiem
                 Width = 240,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedToolWindow,
-                Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Text = caption,
                 StartPosition = FormStartPosition.CenterScreen
             };
@@ -105,7 +100,6 @@ namespace OnThiTracNghiem
             prompt.Controls.Add(textLabel);
             prompt.AcceptButton = confirmation;
             
-
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "-1";
         }
     }
@@ -119,7 +113,7 @@ namespace OnThiTracNghiem
                 Width = 240,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedToolWindow,
-                Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 Text = caption,
                 StartPosition = FormStartPosition.CenterScreen
             };
