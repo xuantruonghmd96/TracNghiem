@@ -18,6 +18,7 @@ namespace OnThiTracNghiem
         private Button m_btnMotDapAn;
         private Button m_btnNhieuDapAn;
         private string m_duoiFileImage;
+        private string subjectFolder;
 
         public int IntSoPhuongAn
         {
@@ -58,17 +59,21 @@ namespace OnThiTracNghiem
             }
         }
 
-        public ThietDat(NumericUpDown numSoPhuongAn, CheckBox chbxSoDapAnDuocChon, Button btnMotDapAn, Button btnNhieuDapAn)
+        public ThietDat(NumericUpDown numSoPhuongAn, CheckBox chbxSoDapAnDuocChon, Button btnMotDapAn, Button btnNhieuDapAn, string subjectFolder)
         {
             m_soDapAnDuocChon = chbxSoDapAnDuocChon;
             m_soPhuongAn = numSoPhuongAn;
             m_btnMotDapAn = btnMotDapAn;
             m_btnNhieuDapAn = btnNhieuDapAn;
+            this.subjectFolder = subjectFolder;
         }
 
         public void LoadFile()
         {
-            List<string> lines = File.ReadAllLines(Contents.fileNameThietDat).ToList();
+            if (!File.Exists(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung))
+                Contents.TaoMacDinhDuLieuSources(subjectFolder);
+
+            List<string> lines = File.ReadAllLines(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameThietDat).ToList();
 
             m_soPhuongAn.Value = Int32.Parse(lines[0]);
             if (lines[1] == "False")
@@ -94,10 +99,23 @@ namespace OnThiTracNghiem
 
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.fileNameThietDat);
+            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameThietDat);
             file.WriteLine(m_soPhuongAn.Value);
             file.WriteLine(m_soDapAnDuocChon.Checked);
             file.WriteLine(m_duoiFileImage);
+            //if (m_soDapAnDuocChon.Checked == false)
+            //    file.WriteLine(1);
+            //else file.WriteLine(0);
+            file.Close();
+            file.Dispose();
+        }
+
+        public static void SaveFileMacDinh(string subjectFolder)
+        {
+            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameThietDat);
+            file.WriteLine(4);
+            file.WriteLine(bool.FalseString);
+            file.WriteLine(".bmp");
             //if (m_soDapAnDuocChon.Checked == false)
             //    file.WriteLine(1);
             //else file.WriteLine(0);

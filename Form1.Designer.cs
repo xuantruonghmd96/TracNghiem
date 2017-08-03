@@ -35,6 +35,7 @@ namespace OnThiTracNghiem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tctrlMainMenu = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cbxListSubjects = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -124,6 +125,7 @@ namespace OnThiTracNghiem
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(227)))), ((int)(((byte)(167)))));
+            this.tabPage5.Controls.Add(this.cbxListSubjects);
             this.tabPage5.Controls.Add(this.button2);
             this.tabPage5.Controls.Add(this.button1);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
@@ -132,6 +134,20 @@ namespace OnThiTracNghiem
             this.tabPage5.Size = new System.Drawing.Size(392, 247);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
+            // 
+            // cbxListSubjects
+            // 
+            this.cbxListSubjects.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxListSubjects.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxListSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxListSubjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxListSubjects.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(126)))), ((int)(((byte)(4)))));
+            this.cbxListSubjects.FormattingEnabled = true;
+            this.cbxListSubjects.Location = new System.Drawing.Point(84, 3);
+            this.cbxListSubjects.Name = "cbxListSubjects";
+            this.cbxListSubjects.Size = new System.Drawing.Size(222, 28);
+            this.cbxListSubjects.TabIndex = 0;
+            this.cbxListSubjects.SelectedIndexChanged += new System.EventHandler(this.cbxListSubjects_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -874,7 +890,7 @@ namespace OnThiTracNghiem
             this.đápÁnMộtCâuToolStripMenuItem,
             this.bắtĐầuTừCâuToolStripMenuItem});
             this.càiĐặtToolStripMenuItem.Name = "càiĐặtToolStripMenuItem";
-            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.càiĐặtToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.càiĐặtToolStripMenuItem.Text = "Sửa đáp án";
             // 
             // tấtCảĐápÁnToolStripMenuItem1
@@ -901,14 +917,14 @@ namespace OnThiTracNghiem
             // càiĐặtToolStripMenuItem1
             // 
             this.càiĐặtToolStripMenuItem1.Name = "càiĐặtToolStripMenuItem1";
-            this.càiĐặtToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.càiĐặtToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.càiĐặtToolStripMenuItem1.Text = "Cài đặt";
             this.càiĐặtToolStripMenuItem1.Click += new System.EventHandler(this.càiĐặtToolStripMenuItem1_Click);
             // 
             // bảnQuyềnToolStripMenuItem
             // 
             this.bảnQuyềnToolStripMenuItem.Name = "bảnQuyềnToolStripMenuItem";
-            this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.bảnQuyềnToolStripMenuItem.Text = "Bản quyền";
             this.bảnQuyềnToolStripMenuItem.Click += new System.EventHandler(this.bảnQuyềnToolStripMenuItem_Click);
             // 
@@ -1008,6 +1024,7 @@ namespace OnThiTracNghiem
         private ToolStripMenuItem bắtĐầuTừCâuToolStripMenuItem;
         private ToolStripMenuItem càiĐặtToolStripMenuItem1;
         private ToolStripMenuItem bảnQuyềnToolStripMenuItem;
+        private ComboBox cbxListSubjects;
     }
 }
 

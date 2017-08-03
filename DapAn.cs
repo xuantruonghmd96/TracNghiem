@@ -11,6 +11,12 @@ namespace OnThiTracNghiem
     {
         private int m_soCau;
         private List<string> m_dapAn;
+        private string subjectFolder;
+
+        public DapAn(string subjectFolder)
+        {
+            this.subjectFolder = subjectFolder;
+        }
 
         public int SoCau
         {
@@ -40,7 +46,10 @@ namespace OnThiTracNghiem
 
         public void LoadFile()
         {
-            List<string> lines = File.ReadAllLines(Contents.fileNameDapAn).ToList();
+            if (!File.Exists(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDuLieuVung))
+                Contents.TaoMacDinhDuLieuSources(subjectFolder);
+
+            List<string> lines = File.ReadAllLines(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDapAn).ToList();
             SoCau = Int32.Parse(lines[0]);
 
             m_dapAn = new List<string>();
@@ -50,10 +59,20 @@ namespace OnThiTracNghiem
 
         public void SaveFile()
         {
-            StreamWriter file = new StreamWriter(Contents.fileNameDapAn);
+            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDapAn);
             file.WriteLine(SoCau);
             for (int i = 0; i < SoCau; i++)
                 file.WriteLine(DapAns[i]);
+            file.Close();
+            file.Dispose();
+        }
+
+        public static void SaveFileMacDinh(string subjectFolder, int soCauMacDinh)
+        {
+            StreamWriter file = new StreamWriter(Contents.SourcesPath + subjectFolder + @"/" + Contents.fileNameDapAn);
+            file.WriteLine(soCauMacDinh);
+            for (int i = 0; i < soCauMacDinh; i++)
+                file.WriteLine("");
             file.Close();
             file.Dispose();
         }

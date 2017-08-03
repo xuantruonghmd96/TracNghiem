@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace OnThiTracNghiem
         protected DapAn m_dapAn;
         protected int cauHienTai = 1;
         protected List<string> dsPhuongAnDaChon = new List<string>();
+        protected string _subjectFolder;
 
         public FormThi()
         {
@@ -28,12 +30,13 @@ namespace OnThiTracNghiem
             else KetThucThi();
         }
 
-        public FormThi(List<int> m_dsCauHoi, DuLieuVung m_duLieuVung, ThietDat m_thietDat, DapAn m_dapAn)
+        public FormThi(List<int> m_dsCauHoi, DuLieuVung m_duLieuVung, ThietDat m_thietDat, DapAn m_dapAn, string subjectFolder)
         {
             this.m_dsCauHoi = m_dsCauHoi;
             this.m_duLieuVung = m_duLieuVung;
             this.m_thietDat = m_thietDat;
             this.m_dapAn = m_dapAn;
+            this._subjectFolder = subjectFolder;
             InitializeComponent();
             DrawNutChonPhuongAn();
             if (cauHienTai <= m_dsCauHoi.Count)
@@ -43,7 +46,7 @@ namespace OnThiTracNghiem
         
         public string LayFilePathImage(int i)
         {
-            string imageFilePath = Contents.dauFileImage;
+            string imageFilePath = Contents.SourcesPath + _subjectFolder + @"/" + Contents.dauFileImage;
             if (i < 10)
                 imageFilePath += "00";
             else if (i < 100)
@@ -56,6 +59,12 @@ namespace OnThiTracNghiem
 
         protected void LoadImage(string imageFilePath)
         {
+            if (!File.Exists(imageFilePath))
+            {
+                pbxCauHoi.Image = Contents.SetUpPictures(pbxCauHoi); 
+                return;
+            }
+
             pbxCauHoi.Image = Image.FromFile(imageFilePath);
             if (pbxCauHoi.Image.Width > pbxCauHoi.Width || pbxCauHoi.Image.Height > pbxCauHoi.Height)
                 pbxCauHoi.SizeMode = PictureBoxSizeMode.Zoom;

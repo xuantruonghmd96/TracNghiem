@@ -15,6 +15,8 @@ namespace OnThiTracNghiem
         public DuLieuVung duLieuVung;
         public ThietDat thietDat;
         public DapAn dapAn;
+        public SubjectsManager subsManager;
+
         FormSetting fs;
 
         public FormMain()
@@ -35,14 +37,18 @@ namespace OnThiTracNghiem
             tctrlMainMenu.SizeMode = TabSizeMode.Fixed;
             this.Text = "Giúp anh trả lời những câu hỏi!";
 
-            fs = new FormSetting(this, lblSoCauChuaVung);
+            subsManager = new SubjectsManager();
+            subsManager.LoadFile();
+            subsManager.AddBindingDataSubjectsName(cbxListSubjects);
+
+            fs = new FormSetting(this, lblSoCauChuaVung, subsManager.Subjects[subsManager.SubSelected].FolderName);
             duLieuVung = fs.getDuLieuVung();
             duLieuVung.LoadFile();
 
             thietDat = fs.getThietDat();
             thietDat.LoadFile();
 
-            dapAn = new DapAn();
+            dapAn = new DapAn(subsManager.Subjects[subsManager.SubSelected].FolderName);
             dapAn.LoadFile();
             LoadnumSoCauThi();
             numTongSoCauHoi.Value = dapAn.SoCau;
@@ -95,7 +101,7 @@ namespace OnThiTracNghiem
                 chbxSoDapAnDuocChon.BackgroundImage.RotateFlip(RotateFlipType.Rotate180FlipX);
             ChonNhieuDapAn();
         }
-       
+
         private void tctrlMainMenu_MouseClick(object sender, MouseEventArgs e)
         {
             if (duLieuVung.CoThayDoiSoLanVung((int)numSoLanVung.Value))
@@ -120,7 +126,7 @@ namespace OnThiTracNghiem
         private void btnModeDapAn1_Click(object sender, EventArgs e)
         {
             List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
-            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -182,7 +188,7 @@ namespace OnThiTracNghiem
             int soCauKhongThi = dapAn.SoCau - (int)numSoCauThi.Value;
             DScauThi.RemoveRange(0, soCauKhongThi);
 
-            Form frm = new FormThi(DScauThi, duLieuVung, thietDat, dapAn);
+            Form frm = new FormThi(DScauThi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -196,7 +202,7 @@ namespace OnThiTracNghiem
 
             List<int> DScauHoi = new List<int>();
             DScauHoi.Add(cauCanSua);
-            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -207,7 +213,7 @@ namespace OnThiTracNghiem
             var rnd = new Random();
             DScauHoi = DScauHoi.OrderBy(item => rnd.Next()).ToList();
 
-            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -216,7 +222,7 @@ namespace OnThiTracNghiem
         {
             List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
 
-            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -229,7 +235,10 @@ namespace OnThiTracNghiem
             var rnd = new Random();
             DScauHoi = DScauHoi.OrderBy(item => rnd.Next()).ToList();
 
-            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            if (DScauHoi.Count < 1)
+                return;
+
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -244,7 +253,7 @@ namespace OnThiTracNghiem
             List<int> DScauHoi = new List<int>();
             DScauHoi.Add(cauCanSua);
 
-            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormHoc frm = new FormHoc(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -266,7 +275,7 @@ namespace OnThiTracNghiem
 
             List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
             DScauHoi.RemoveRange(0, cauBatDau - 1);
-            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -310,7 +319,7 @@ namespace OnThiTracNghiem
         private void tấtCảĐápÁnToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
-            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
         }
@@ -324,7 +333,7 @@ namespace OnThiTracNghiem
 
             List<int> DScauHoi = new List<int>();
             DScauHoi.Add(cauCanSua);
-            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
 
@@ -339,7 +348,7 @@ namespace OnThiTracNghiem
 
             List<int> DScauHoi = Enumerable.Range(1, dapAn.SoCau).ToList();
             DScauHoi.RemoveRange(0, cauBatDau - 1);
-            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn);
+            FormSuaDapAn frm = new FormSuaDapAn(DScauHoi, duLieuVung, thietDat, dapAn, subsManager.Subjects[subsManager.SubSelected].FolderName);
             frm.ShowDialog();
             lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
 
@@ -411,6 +420,24 @@ namespace OnThiTracNghiem
         private void thoátToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbxListSubjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            subsManager.SubSelected = (sender as ComboBox).SelectedIndex;
+            subsManager.SaveFile();
+            fs = new FormSetting(this, lblSoCauChuaVung, subsManager.Subjects[subsManager.SubSelected].FolderName);
+            duLieuVung = fs.getDuLieuVung();
+            duLieuVung.LoadFile();
+
+            thietDat = fs.getThietDat();
+            thietDat.LoadFile();
+
+            dapAn = new DapAn(subsManager.Subjects[subsManager.SubSelected].FolderName);
+            dapAn.LoadFile();
+            LoadnumSoCauThi();
+            numTongSoCauHoi.Value = dapAn.SoCau;
+            duLieuVung.CapNhatSoCau(dapAn.SoCau);
         }
     }
 }

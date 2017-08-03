@@ -22,18 +22,18 @@ namespace OnThiTracNghiem
             InitializeComponent();
         }
 
-        public FormSetting(FormMain pf, Label soCauChuaVung)
+        public FormSetting(FormMain pf, Label soCauChuaVung, string subjectFolder)
         {
             InitializeComponent();
 
             prevForm = pf;
-            duLieuVung = new DuLieuVung(numSoLanVung, soCauChuaVung);
+            duLieuVung = new DuLieuVung(numSoLanVung, soCauChuaVung, subjectFolder);
             duLieuVung.LoadFile();
 
-            thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn);
+            thietDat = new ThietDat(numSoPhuongAn, chbxSoDapAnDuocChon, btnMotDapAn, btnNhieuDapAn, subjectFolder);
             thietDat.LoadFile();
 
-            dapAn = new DapAn();
+            dapAn = new DapAn(subjectFolder);
             dapAn.LoadFile();
             numTongSoCauHoi.Value = dapAn.SoCau;
             duLieuVung.CapNhatSoCau(dapAn.SoCau);

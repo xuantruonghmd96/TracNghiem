@@ -17,7 +17,7 @@ namespace OnThiTracNghiem
             InitializeComponent();
         }
 
-        public FormHoc(List<int> m_dsCauHoi, DuLieuVung m_duLieuVung, ThietDat m_thietDat, DapAn m_dapAn) : base(m_dsCauHoi, m_duLieuVung, m_thietDat, m_dapAn)
+        public FormHoc(List<int> m_dsCauHoi, DuLieuVung m_duLieuVung, ThietDat m_thietDat, DapAn m_dapAn, string subjectFolder) : base(m_dsCauHoi, m_duLieuVung, m_thietDat, m_dapAn, subjectFolder)
         {
             InitializeComponent();
         }
