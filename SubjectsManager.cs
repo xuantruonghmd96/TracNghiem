@@ -72,6 +72,11 @@ namespace OnThiTracNghiem
                 cbx.Items.Add(_subjects[i]);
             cbx.SelectedIndex = _subSelected;
         }
+
+        public void AddNewSubject(string name, string folderName)
+        {
+            _subjects.Add(new Subject(name, folderName));
+        }
     }
 
     public class Subject

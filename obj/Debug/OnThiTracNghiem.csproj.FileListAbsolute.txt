@@ -60,3 +60,5 @@ D:\Lap Trinh C\TracNghiem-master\obj\Debug\OnThiTracNghiem.FormThongBaoDungSai.r
 D:\Lap Trinh C\TracNghiem-master\obj\Debug\OnThiTracNghiem.Properties.Resources.resources
 D:\Lap Trinh C\TracNghiem-master\obj\Debug\OnThiTracNghiem.csproj.GenerateResource.Cache
 C:\Users\chita\Documents\Visual Studio 2017\TracNghiem\bin\Debug\Ionic.Zip.dll
+D:\Lap Trinh C\TracNghiem\bin\Debug\Ionic.Zip.dll
+D:\Lap Trinh C\TracNghiem\obj\Debug\OnThiTracNghiem.FormTaoMonHoc.resources

@@ -16,8 +16,13 @@ namespace OnThiTracNghiem
         public static Color[] colorCheckBoxChonDapAn = { SystemColors.ActiveCaption, Color.FromArgb(249, 105, 14) };
         public static int[] locationYPanelChonDapAn = { 30, 240, 170, 100, 30 };
         public static string dauFileImage = @"question/Cau ";
-        public static string duoiFileImage = @".bmp";
+        public static string duoiFileImageDefault = @".jpg";
         public static int soCauMacDinh = 1;
+
+        public static string GetDuoiFileImage(ThietDat thietDat)
+        {
+            return thietDat.DuoiFileImage;
+        }
 
         public static Bitmap SetUpPictures(PictureBox pb)
         {

@@ -115,7 +115,7 @@ namespace OnThiTracNghiem
             StreamWriter file = new StreamWriter(Contents.sourcesPath + subjectFolder + @"/" + Contents.settingFilePath);
             file.WriteLine(4);
             file.WriteLine(bool.FalseString);
-            file.WriteLine(".bmp");
+            file.WriteLine(Contents.duoiFileImageDefault);
             //if (m_soDapAnDuocChon.Checked == false)
             //    file.WriteLine(1);
             //else file.WriteLine(0);

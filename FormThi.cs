@@ -47,8 +47,7 @@ namespace OnThiTracNghiem
             else if (i < 100)
                 imageFilePath += "0";
             imageFilePath += i.ToString();
-            Contents.duoiFileImage = m_thietDat.DuoiFileImage;
-            imageFilePath += Contents.duoiFileImage;
+            imageFilePath += Contents.GetDuoiFileImage(m_thietDat);
             return imageFilePath;
         }
 

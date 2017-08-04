@@ -85,6 +85,12 @@
     <Compile Include="FormSuaDapAnTatCa.Designer.cs">
       <DependentUpon>FormSuaDapAnTatCa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTaoMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaoMonHoc.Designer.cs">
+      <DependentUpon>FormTaoMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaoMonHoc.resx">
+      <DependentUpon>FormTaoMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThi.resx">
       <DependentUpon>FormThi.cs</DependentUpon>

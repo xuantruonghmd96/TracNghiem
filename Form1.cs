@@ -492,5 +492,13 @@ namespace OnThiTracNghiem
                 subsManager.AddBindingDataSubjectsName(cbxListSubjects);
             }
         }
+
+        private void tạoMônHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTaoMonHoc frm = new FormTaoMonHoc();
+            frm.ShowDialog();
+            subsManager.LoadFile();
+            subsManager.AddBindingDataSubjectsName(cbxListSubjects);
+        }
     }
 }
