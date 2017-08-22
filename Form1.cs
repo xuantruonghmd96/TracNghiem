@@ -261,8 +261,9 @@ namespace OnThiTracNghiem
         {
             duLieuVung.DuLieu = Enumerable.Repeat(0, dapAn.SoCau).ToList();
             duLieuVung.SoCauChuaVung = dapAn.SoCau;
+            lblSoCauChuaVung.Text = duLieuVung.SoCauChuaVung.ToString();
             duLieuVung.SaveFile();
-            MessageBox.Show("Đã làm mới dữ liệu vững về 0", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show("Đã làm mới dữ liệu vững về 0", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnModeDapAn3_Click(object sender, EventArgs e)
@@ -437,6 +438,7 @@ namespace OnThiTracNghiem
             savefile.FileName = sub.FolderName + ".dat";
             // set filters - this can be done in properties as well
             savefile.Filter = "Data files (*.dat)|*.dat|All files (*.*)|*.*";
+            savefile.Title = "Gửi em những ngôi sao trên cao, tặng em chiếc khăn gió ấm.";
             
             if (savefile.ShowDialog() == DialogResult.OK)
             {
@@ -451,13 +453,14 @@ namespace OnThiTracNghiem
             }
         }
 
-        private void mởĐềThiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MoDeThiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openfile = new OpenFileDialog();
             // set a default file name
             openfile.FileName = "subject.dat";
             // set filters - this can be done in properties as well
             openfile.Filter = "Data files (*.dat)|*.dat|All files (*.*)|*.*";
+            openfile.Title = "Gửi cho em đêm lung linh và tia sóng nơi biển lớn!";
 
             if (openfile.ShowDialog() == DialogResult.OK)
             {
@@ -467,7 +470,7 @@ namespace OnThiTracNghiem
                 zip.ExtractAll(tempFolder);
                 StreamReader sr = new StreamReader(tempFolder + "data/import.ini");
                 String dat = sr.ReadToEnd();
-                String []f = dat.Split('$');
+                String[] f = dat.Split('$');
                 String folderName = f[0];
                 String name = f[1];
                 sr.Close();

@@ -72,8 +72,9 @@ namespace OnThiTracNghiem
         {
             prevForm.duLieuVung.DuLieu = Enumerable.Repeat(0, prevForm.dapAn.SoCau).ToList();
             prevForm.duLieuVung.SoCauChuaVung = prevForm.dapAn.SoCau;
+            prevForm.lblSoCauChuaVung.Text = prevForm.duLieuVung.SoCauChuaVung.ToString();
             prevForm.duLieuVung.SaveFile();
-            MessageBox.Show("Đã làm mới dữ liệu vững về 0.", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show("Đã làm mới dữ liệu vững về 0.", "Yêu lại từ đầu", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lblSoLanVung_Click(object sender, EventArgs e)

@@ -84,6 +84,7 @@ namespace OnThiTracNghiem
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mởĐềThiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tạoMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thiếtLậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.càiĐặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +93,6 @@ namespace OnThiTracNghiem
             this.bắtĐầuTừCâuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.càiĐặtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bảnQuyềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tạoMônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tctrlMainMenu.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,9 +144,9 @@ namespace OnThiTracNghiem
             this.cbxListSubjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxListSubjects.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(126)))), ((int)(((byte)(4)))));
             this.cbxListSubjects.FormattingEnabled = true;
-            this.cbxListSubjects.Location = new System.Drawing.Point(84, 3);
+            this.cbxListSubjects.Location = new System.Drawing.Point(19, 20);
             this.cbxListSubjects.Name = "cbxListSubjects";
-            this.cbxListSubjects.Size = new System.Drawing.Size(222, 28);
+            this.cbxListSubjects.Size = new System.Drawing.Size(352, 28);
             this.cbxListSubjects.TabIndex = 0;
             this.cbxListSubjects.SelectedIndexChanged += new System.EventHandler(this.cbxListSubjects_SelectedIndexChanged);
             // 
@@ -859,7 +859,7 @@ namespace OnThiTracNghiem
             this.mởĐềThiToolStripMenuItem.Name = "mởĐềThiToolStripMenuItem";
             this.mởĐềThiToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.mởĐềThiToolStripMenuItem.Text = "Mở bộ câu hỏi";
-            this.mởĐềThiToolStripMenuItem.Click += new System.EventHandler(this.mởĐềThiToolStripMenuItem_Click);
+            this.mởĐềThiToolStripMenuItem.Click += new System.EventHandler(this.MoDeThiToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
@@ -867,6 +867,13 @@ namespace OnThiTracNghiem
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.thoátToolStripMenuItem.Text = "Lưu bộ câu hỏi";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
+            // 
+            // tạoMônHọcToolStripMenuItem
+            // 
+            this.tạoMônHọcToolStripMenuItem.Name = "tạoMônHọcToolStripMenuItem";
+            this.tạoMônHọcToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.tạoMônHọcToolStripMenuItem.Text = "Tạo môn học";
+            this.tạoMônHọcToolStripMenuItem.Click += new System.EventHandler(this.tạoMônHọcToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem1
             // 
@@ -929,13 +936,6 @@ namespace OnThiTracNghiem
             this.bảnQuyềnToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.bảnQuyềnToolStripMenuItem.Text = "Bản quyền";
             this.bảnQuyềnToolStripMenuItem.Click += new System.EventHandler(this.bảnQuyềnToolStripMenuItem_Click);
-            // 
-            // tạoMônHọcToolStripMenuItem
-            // 
-            this.tạoMônHọcToolStripMenuItem.Name = "tạoMônHọcToolStripMenuItem";
-            this.tạoMônHọcToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.tạoMônHọcToolStripMenuItem.Text = "Tạo môn học";
-            this.tạoMônHọcToolStripMenuItem.Click += new System.EventHandler(this.tạoMônHọcToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -1006,7 +1006,7 @@ namespace OnThiTracNghiem
         private System.Windows.Forms.Button btnNhieuDapAn;
         private System.Windows.Forms.NumericUpDown numSoLanVung;
         private System.Windows.Forms.Label lblSoLanVung;
-        private System.Windows.Forms.Label lblSoCauChuaVung;
+        public System.Windows.Forms.Label lblSoCauChuaVung;
         private System.Windows.Forms.ToolTip ttpSoLanVung;
         private Button btnModeDapAn1Classic;
         private ToolTip ttpMode1DapAnClassic;
